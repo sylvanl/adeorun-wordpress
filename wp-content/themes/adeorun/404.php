@@ -12,8 +12,6 @@
 					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
 				</h2>
 
-				<p>Tu t'es perdu mon poulet</p>
-
 			</article>
 			<!-- /article -->
 
