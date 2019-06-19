@@ -36,7 +36,6 @@
 						<a href="<?php echo home_url(); ?>">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
 							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-							<p>Bonjour Sylvan</p>
 						</a>
 					</div>
 					<!-- /logo -->
