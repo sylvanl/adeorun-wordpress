@@ -464,6 +464,12 @@ if( function_exists('acf_add_options_page') ) {
 		'page_title' 	=> 'Paramètres du header',
 		'menu_title'	=> 'Header',
 		'parent_slug'	=> 'theme-general-settings',
+    ));
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Paramètres du blog',
+		'menu_title'	=> 'Blog',
+		'parent_slug'	=> 'theme-general-settings',
 	));
 	
 	acf_add_options_sub_page(array(
