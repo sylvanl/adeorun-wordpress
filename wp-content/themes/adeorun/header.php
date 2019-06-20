@@ -26,7 +26,7 @@
 					<!-- logo -->
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
-							<img src="<?php the_field('logo', 'option'); ?>" alt="Logo" class="logo-img">
+							<img src="<?php $logo = get_field('logo', 'option'); echo $url = $image['url']; ?>" alt="Logo" class="logo-img">
 						</a>
 					</div>
 					<!-- /logo -->
