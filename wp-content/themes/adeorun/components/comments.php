@@ -1,24 +1,59 @@
-<div class="comments">
-	<?php if (post_password_required()) : ?>
-	<p><?php _e( 'Post is password protected. Enter the password to view any comments.', 'html5blank' ); ?></p>
-</div>
 
-	<?php return; endif; ?>
+<div id="comments" class="comments">
 
-<?php if (have_comments()) : ?>
 
-	<h2><?php comments_number(); ?></h2>
+<?php if ( get_comments_number()!=0 ) : ?>
 
-	<ul>
-		<?php wp_list_comments('type=comment&callback=html5blankcomments'); // Custom callback in functions.php ?>
+	<h3><?php comments_number(); ?></h3>
+
+	<ul class="commentlist">
+		<?php
+			//Gather comments for a specific page/post
+			$comments = get_comments(array(
+				'status' => 'approve' //Change this to the type of comments to be displayed
+			));
+
+			//Display the list of comments
+			wp_list_comments(array(
+				'per_page' => 10, //Allow comment pagination
+				'reverse_top_level' => false //Show the oldest comments at the top of the list
+			), $comments);
+		?>
 	</ul>
-
-<?php elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
-	<p><?php _e( 'Comments are closed here.', 'html5blank' ); ?></p>
 
 <?php endif; ?>
 
-<?php comment_form(); ?>
 
-</div>
+<?php
+$args = array(
+    'fields' => apply_filters(
+        'comment_form_default_fields', array(
+            'author' =>'  <div class="row">
+		<div class="input-field col s4">' . '<p class="comment-form-author">' . '<label for="author">' . __( 'Nom *' ) . '</label> ' . '<input id="author" name="author" type="text" value="' .
+                esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />'.
+                ( $req ? '<span class="required">*</span>' : '' )  .
+                '</p>' . '</div>'
+                ,
+            'email'  => '	<div class="input-field col s4">'.'<p class="comment-form-email">' .   '<label for="email">' . __( 'Adresse mail *' ) . '</label> ' . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+                '" size="30"' . $aria_req . ' />'  .
+                ( $req ? '<span class="required">*</span>' : '' )
+                 .
+                '</p>'. '</div>',
+
+            'url'    => '<div class="input-field col s4">' . '<p class="comment-form-url">' . '<label for="url">' . __( 'Site web', 'domainreference' ) .
+             '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> ' . '</label>' . '</p>' . '</div>' . '</div>'
+        )
+    ),
+    'comment_field' => '<p class="comment-form-comment">' .
+        '<label for="comment">' . __( 'Votre commentaire:' ) . '</label>' .
+        '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>' .
+        '</p>',
+    'comment_notes_after' => '',
+    'title_reply' => '<div class="crunchify-text"> <h5>Laisser un commentaire</h5></div>'
+);
+?>
+
+
+		<?php comment_form($args); ?>
+
+		</div>
