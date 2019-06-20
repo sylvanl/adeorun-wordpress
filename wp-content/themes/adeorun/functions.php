@@ -251,10 +251,10 @@ function html5_blank_view_article($more)
     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
 }
 
-// Remove Admin bar
+// Add Admin bar
 function remove_admin_bar()
 {
-    return false;
+    return true;
 }
 
 // Remove 'text/css' from our enqueued stylesheet
