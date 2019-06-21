@@ -74,6 +74,7 @@
 
 
 <!-- Show 3 lastest posts -->
+<h3>A découvrir également</h3>
 <?php
 $args = array( 'numberposts' => "3", 'order'=> 'ASC', 'orderby' => 'title' );
 $postslist = get_posts( $args );
