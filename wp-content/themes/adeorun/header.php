@@ -26,14 +26,37 @@
 					<!-- logo -->
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
-							<img src="<?php $logo = get_field('logo', 'option'); echo $url = $image['url']; ?>" alt="Logo" class="logo-img">
+							<img src="<?php $logo = get_field('logo', 'theme-general-settings'); echo $logo['url']; ?>" alt="Logo" class="logo-img">
 						</a>
+						
 					</div>
 					<!-- /logo -->
 
 					<!-- nav -->
 					<nav class="nav" role="navigation">
 						<?php html5blank_nav(); ?>
+					</nav>
+
+					<nav>
+						<div class="nav-wrapper">
+							<a href="<?php echo home_url(); ?>" class="brand-logo">
+							<img src="<?php $logo = get_field('logo', 'theme-general-settings'); echo $logo['url']; ?>" alt="Logo">
+							</a>
+
+							<?php 
+
+							$image = get_field('logo', 'options');
+
+							if( !empty($image) ): ?>
+
+								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+
+							<?php endif; ?>
+							<?php the_field('logo', 'options'); ?>
+							<ul id="nav-mobile" class="right hide-on-med-and-down">
+								<?php html5blank_nav(); ?>
+							</ul>
+						</div>
 					</nav>
 					<!-- /nav -->
 
