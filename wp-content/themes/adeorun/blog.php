@@ -4,64 +4,40 @@
 
 	<main role="main">
 		<!-- section -->
-		<section>
 
 			<h1><?php the_title(); ?></h1>
 
-      <?php
-      echo '<ul class="nav nav-tabs" role="tablist">';
-      $args = array(
-          'hide_empty'=> 1,
-          'orderby' => 'name',
-          'order' => 'ASC'
-      );
-      $categories = get_categories($args);
-      foreach($categories as $category) {
-          echo
-              '<li>
-                  <a href="#'.$category->slug.'" role="tab" data-toggle="tab">
-                      '.$category->name.'
-                  </a>
-              </li>';
-      }
-      echo '</ul>';
+<ul>
+      <?php $cats = get_categories();
+                              foreach( $cats as $cat ) : ?>
+                                  <li>
+                                      <a href="#" data-filter=".<?php echo $cat -> slug; ?>">
+                                          <?php echo $cat -> name ; ?>
+                                      </a>
+                                  </li>
+                              <?php endforeach; ?>
+</ul>
 
-      echo '<div class="tab-content">';
-      foreach($categories as $category) {
-          echo '<div class="tab-pane" id="' . $category->slug.'">';
-          $the_query = new WP_Query(array(
-              'post_type' => 'acme_product',
-              'posts_per_page' => 100,
-              'category_name' => $category->slug
-          ));
 
-          while ( $the_query->have_posts() ) :
-          $the_query->the_post();
-          echo '<h1>';
-              the_title();
-          echo '</h1>';
-          endwhile;
-      }
-      echo '</div>';
-      ?>
+                          <?php while(have_posts()): the_post(); ?>
 
-      <ul>
+                              <div>
+                                    <?php
+                                      foreach( $cats as $cat ) :
+                                                      $classe = 'blablazut' . 'shmilblique';
+                                        endforeach; ?>
 
-      <?php $the_query = new WP_Query( 'posts_per_page=5' ); ?>
-      <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+                                              <?php the_post_thumbnail(); ?>
 
-      <li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
-      <li><?php the_excerpt(__('(more…)')); ?></li>
-      </br>
+                                              <a href="<?php the_permalink(); ?>">
+                                              <?php the_title(); ?></a>
+                                                  </div>
 
-      <?php
-      endwhile;
-      wp_reset_postdata();
-      ?>
+                                          <?php endwhile; ?>
 
-      </ul>
 
-		</section>
+
+
 		<!-- /section -->
 	</main>
 
