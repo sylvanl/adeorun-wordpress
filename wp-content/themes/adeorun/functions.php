@@ -415,7 +415,7 @@ function create_post_type_html5()
         ),
         'public' => true,
         'show_ui' => true,
-        'menu_position' => 2,
+        'menu_position' => 3,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
         'supports' => array(
