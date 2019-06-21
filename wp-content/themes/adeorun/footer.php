@@ -1,12 +1,4 @@
 			<!-- footer -->
-			<footer class="footer" role="contentinfo">
-
-				
-
-				
-
-			</footer>
-
 			<footer class="page-footer">
 				<div class="container">
 					<div class="row">
@@ -24,6 +16,7 @@
 						</div>
 					</div>
 				</div>
+
 				<!-- copyright et mentions légales -->
 				<p class="footer-copyright container">
 					<?php $texte_lien_copyright = get_field('texte_lien_copyright', 'options');
