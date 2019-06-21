@@ -9,8 +9,7 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
-
-medias
+wp-content/medias
 
 /.htaccess
 /license.txt
