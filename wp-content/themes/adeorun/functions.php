@@ -419,11 +419,11 @@ function create_post_type_html5()
 {
     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
+    register_post_type('Documentation', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Documentation', 'html5blank'), // Rename these to suit
-            'singular_name' => __('Documentation', 'html5blank'),
+            'name' => __('Documentation', 'Documentation'), // Rename these to suit
+            'singular_name' => __('Documentation', 'Documentation'),
             'add_new' => __('Ajouter', 'html5blank'),
             'add_new_item' => __('Ajouter une nouvelle documentation', 'html5blank'),
             'edit' => __('Editer', 'html5blank'),
