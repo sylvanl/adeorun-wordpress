@@ -414,6 +414,8 @@ function create_post_type_html5()
             'not_found_in_trash' => __('Pas de documentation trouvée dans la corbbeille', 'html5blank')
         ),
         'public' => true,
+        'show_ui' => true,
+        'menu_position' => 2,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
         'supports' => array(
