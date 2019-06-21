@@ -1,12 +1,48 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
+				
+
+				
+
+			</footer>
+
+			<footer class="page-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col s3">
+							<?php dynamic_sidebar( 'widget-area-1' ); ?>
+						</div>
+						<div class="col s3">
+							<?php dynamic_sidebar( 'widget-area-2' ); ?>
+						</div>
+						<div class="col s3">
+							<?php dynamic_sidebar( 'widget-area-3' ); ?>
+						</div>
+						<div class="col s3">
+							<?php dynamic_sidebar( 'widget-area-4' ); ?>
+						</div>
+					</div>
+				</div>
+				<!-- copyright et mentions légales -->
+				<p class="footer-copyright container">
+					<?php $texte_lien_copyright = get_field('texte_lien_copyright', 'options');
+					$lien_copyright = get_field('lien_copyright', 'options');
+					if( !empty($lien_copyright) && !empty($texte_lien_copyright) ): ?>
+						<a class="grey-text text-lighten-4" href="#!"><?php echo $texte_lien_copyright; ?></a>
+					<?php elseif( !empty($texte_lien_copyright) ):
+						echo $texte_lien_copyright;
+					else : ?>
+						© <?php bloginfo('name'); ?> <?php echo date('Y'); ?>
+					<?php endif; ?>
+
+					<?php $texte_lien_mentions_legales = get_field('texte_lien_mentions_legales', 'options');
+					$lien_mentions_legales = get_field('lien_mentions_legales', 'options');
+					if( !empty($lien_copyright) && !empty($texte_lien_copyright) ): ?>
+						<a class="grey-text text-lighten-4 right" href="<?php echo $lien_mentions_legales ?>"><?php echo $texte_lien_mentions_legales ?>s</a>	
+					<?php endif; ?>
 				</p>
-				<!-- /copyright -->
+				<!-- /copyright et mentions légales -->
 
 			</footer>
 			<!-- /footer -->
