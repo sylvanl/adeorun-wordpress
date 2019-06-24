@@ -414,9 +414,11 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
+
 function create_post_type_html5()
 {
+
+  // CPT: Documentation
     register_taxonomy_for_object_type('category', 'Documentation');// Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'Documentation');
     register_post_type('Documentation', // Register Custom Post Type
@@ -433,7 +435,7 @@ function create_post_type_html5()
             'view_item' => __('Voir la documentation', 'html5blank'),
             'search_items' => __('Chercher la documentation', 'html5blank'),
             'not_found' => __("Il n'y a pas de documentation", 'html5blank'),
-            'not_found_in_trash' => __('Pas de documentation trouvée dans la corbbeille', 'html5blank')
+            'not_found_in_trash' => __('Pas de documentation trouvée dans la corbeille', 'html5blank')
         ),
         'public' => true,
         'show_ui' => true,
@@ -451,6 +453,43 @@ function create_post_type_html5()
             'post_tag',
             'category'
         ) // Add Category and Post Tags support
+    ));
+
+// CPT: Outils
+    register_taxonomy_for_object_type('category', 'Outil');
+    register_taxonomy_for_object_type('post_tag', 'Outil');
+    register_post_type('Outil', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Outil', 'Outil'), // Rename these to suit
+            'singular_name' => __('Outil', 'Outil'),
+            'add_new' => __('Ajouter', 'html5blank'),
+            'add_new_item' => __('Ajouter un nouvel outil', 'html5blank'),
+            'edit' => __('Editer', 'html5blank'),
+            'edit_item' => __('Editer les outils', 'html5blank'),
+            'new_item' => __('Nouvel outil', 'html5blank'),
+            'view' => __('Voir les outils', 'html5blank'),
+            'view_item' => __("Voir l'outil", 'html5blank'),
+            'search_items' => __('Chercher dans les outils', 'html5blank'),
+            'not_found' => __("Il n'y a pas d'outils", 'html5blank'),
+            'not_found_in_trash' => __("Pas d'outils trouvés dans la corbeille", 'html5blank')
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'menu_position' => 5,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        )
     ));
 }
 
@@ -503,6 +542,9 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
+// CPT: Outils
+
+
 
 
 
@@ -515,7 +557,7 @@ function documentation_tags_taxonomy() {
 
   $documentation_tags = array(
     'name' => _x( 'Documentation Tags', 'documentation' ),
-    'singular_name' => _x( 'Documentation Tag', 'documentations' ),
+    'singular_name' => _x( 'Documentation Tag', 'documentation' ),
     'search_items' =>  __( 'Search Documentation Tags' ),
     'popular_items' => __( 'Popular Documentation Tags' ),
     'all_items' => __( 'All Documentation Tags' ),
@@ -543,4 +585,44 @@ function documentation_tags_taxonomy() {
   ));
 }
 add_action( 'init', 'documentation_tags_taxonomy', 0 );
+
+
+
+
+//========================= Tags for Outils Custom Type ===========================//
+
+//hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
+function outil_tags_taxonomy() {
+// Labels part for the GUI
+
+  $outil_tags = array(
+    'name' => _x( 'Catégories outil', 'outil' ),
+    'singular_name' => _x( 'Catégorie outil', 'outil' ),
+    'search_items' =>  __( 'Chercher des catégories' ),
+    'popular_items' => __( 'Catégories populaires' ),
+    'all_items' => __( 'Toutes les catégories' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Editer la catégorie' ),
+    'update_item' => __( 'Mettre à jour' ),
+    'add_new_item' => __( 'Ajouter une catégorie' ),
+    'new_item_name' => __( 'Nouvelle documentation sur la catégorie' ),
+    'separate_items_with_commas' => __( 'Séparer les catégories avec des virgules' ),
+    'add_or_remove_items' => __( 'Ajouter ou retirer des catégories' ),
+    'choose_from_most_used' => __( 'Choisir parmi les plus utilisées' ),
+    'menu_name' => __( 'Catégories Outil' ),
+  );
+
+// Now register the non-hierarchical taxonomy like tag. . Replace the parameter portfolios withing the array by the name of your custom post type.
+  register_taxonomy('outil_tags','outil',array(
+    'hierarchical' => true,
+    'labels' => $outil_tags,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'outil tags' ),
+  ));
+}
+add_action( 'init', 'outil_tags_taxonomy', 0 );
 ?>
