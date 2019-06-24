@@ -7,18 +7,28 @@
 
 			<?php
 			// get all the categories from the database
-			$cats = get_categories();
+			$terms = get_terms( array(
+				'taxonomy' => 'documentation_tags',
+				'hide_empty' => false,
+			) );
+				print_r($terms);
 
 				// loop through the categries
-				foreach ($cats as $cat) {
+				foreach ($terms as $term) {
+
 					// setup the cateogory ID
-					$cat_id= $cat->term_id;
+					$term_id= $term->term_id;
+					echo($term_id);
 					// Make a header for the cateogry
-					echo "<h2>".$cat->name."</h2>";
+					echo "<h2>".$term->name."</h2>";
 					// create a custom wordpress query
-					query_posts("cat=$cat_id&posts_per_page=100");
+					$loop = new WP_Query( array(
+					    'posts_per_page'  => 5,
+					    'category_name'   => $term->slug,
+					    'post__not_in'    => array( get_the_ID() )
+					  ) );
 					// start the wordpress loop!
-					if (have_posts()) : while (have_posts()) : the_post(); ?>
+					if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
 
 						<?php // create our link now that the post is setup ?>
 						<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
@@ -26,6 +36,7 @@
 
 					<?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
 				<?php } // done the foreach statement ?>
+
 
 			</div><!-- #content -->
 		</div><!-- #container -->

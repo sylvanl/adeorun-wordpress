@@ -502,3 +502,45 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }
+
+
+
+
+
+//========================= Tags for Documentation Custom Type ===========================//
+
+//hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
+function documentation_tags_taxonomy() {
+// Labels part for the GUI
+
+  $documentation_tags = array(
+    'name' => _x( 'Documentation Tags', 'documentation' ),
+    'singular_name' => _x( 'Documentation Tag', 'documentations' ),
+    'search_items' =>  __( 'Search Documentation Tags' ),
+    'popular_items' => __( 'Popular Documentation Tags' ),
+    'all_items' => __( 'All Documentation Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Documentation Tag' ),
+    'update_item' => __( 'Update Documentation Tag' ),
+    'add_new_item' => __( 'Add New Documentation Tag' ),
+    'new_item_name' => __( 'New Documentation Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate Documentation tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove Documentation tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used Documentation tags' ),
+    'menu_name' => __( 'Documentation Tags' ),
+  );
+
+// Now register the non-hierarchical taxonomy like tag. . Replace the parameter portfolios withing the array by the name of your custom post type.
+  register_taxonomy('documentation_tags','documentation',array(
+    'hierarchical' => true,
+    'labels' => $documentation_tags,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'documentation tags' ),
+  ));
+}
+add_action( 'init', 'documentation_tags_taxonomy', 0 );
+?>
