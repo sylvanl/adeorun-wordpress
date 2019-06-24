@@ -66,16 +66,9 @@ get_header(); ?>
           <?php endwhile; ?>
         </div>
       
-      <?php endif;
+      <?php endif; ?>
 
-      if(get_field('field_name'))
-      {
-        echo '<p>' . get_field('field_name') . '</p>';
-      }
-
-      ?>
-
-      <p>Ceci est la page équipe</p>
+      
 
     </div>
 	</main>
