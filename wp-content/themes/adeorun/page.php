@@ -35,12 +35,3 @@
 	</main>
 
 <?php get_footer(); ?>
-
-<script>
-						// The string:
-						var str = "Hello world!";
-
-						// Look for "Hello"
-						var patt = /Hello/g;
-						var result = patt.test(str);
-					</script>
