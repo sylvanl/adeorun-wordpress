@@ -44,6 +44,9 @@
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
+					
+		<!-- Javascript -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 
 		<!-- analytics -->
 		<script>

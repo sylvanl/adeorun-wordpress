@@ -12,7 +12,16 @@
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<?php the_content(); ?>
-					<i class="far fa-motorcycle"></i>
+					
+					<script>
+						// The string:
+						var str = "Hello world!";
+
+						// Look for "Hello"
+						var patt = /Hello/g;
+						var result = patt.test(str);
+					</script>
+
 				</article>
 				<!-- /article -->
 
