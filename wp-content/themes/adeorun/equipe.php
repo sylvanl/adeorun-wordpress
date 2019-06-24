@@ -22,10 +22,10 @@ get_header(); ?>
           <?php while( have_rows('membres_equipe') ): the_row(); ?>
 
             <div class="col s4">
-              <?php if(get_sub_field('image_membre_equipe'))
-              {
-                echo '<img>' . get_sub_field('image_membre_equipe') . '</img>';
-              }
+              <?php $image = get_field('image_membre_equipe');
+              if( !empty($image) ): ?>
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+              <?php endif;
               if(get_sub_field('nom_membre_equipe'))
               {
                 echo '<p>' . get_sub_field('nom_membre_equipe') . '</p>';
@@ -39,25 +39,29 @@ get_header(); ?>
                 <?php if(get_sub_field('description_membre_equipe'))
                 {
                   echo '<p>' . get_sub_field('description_membre_equipe') . '</p>';
-                } ?>
+                }
+                if(get_sub_field('email_membre_equipe')): ?>
+                  <button type="button" url="<?php get_sub_field('email_membre_equipe') ?>">
+                    <i class="fas fa-envelope"></i>
+                  </button>
+                <?php endif;
+                if(get_sub_field('facebook_membre_equipe')): ?>
+                  <button type="button" url="<?php get_sub_field('facebook_membre_equipe') ?>">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+                <?php endif;
+                if(get_sub_field('twitter_membre_equipe')): ?>
+                  <button type="button" url="<?php get_sub_field('twitter_membre_equipe') ?>">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+                <?php endif;
+                if(get_sub_field('linkedin_membre_equipe')): ?>
+                  <button type="button" url="<?php get_sub_field('linkedin_membre_equipe') ?>">
+                    <i class="fab fa-linkedin-in"></i>
+                  </button>
+                <?php endif; ?>
               </div>
-
-              <div class="row">
-              
-              </div>
-
             </div>
-            
-    
-            <li>sub_field_1 = <?php the_sub_field('sub_field_1'); ?>, sub_field_2 = <?php the_sub_field('sub_field_2'); ?>, etc</li>
-            
-            <?php 
-            
-            $sub_field_3 = get_sub_field('sub_field_3'); 
-            
-            // do something with $sub_field_3
-            
-            ?>
               
           <?php endwhile; ?>
         </div>
