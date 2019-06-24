@@ -11,7 +11,6 @@
 				'taxonomy' => 'documentation_tags',
 				'hide_empty' => false,
 			) );
-				print_r($terms);
 
 				// loop through the categries
 				foreach ($terms as $term) {
