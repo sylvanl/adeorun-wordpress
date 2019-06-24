@@ -68,7 +68,7 @@ get_header(); ?>
       
       <?php endif; ?>
 
-      
+      <?php the_content(); ?>
 
     </div>
 	</main>
