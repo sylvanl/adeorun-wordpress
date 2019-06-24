@@ -24,7 +24,7 @@ get_header(); ?>
             <div class="col s4">
               <?php $image = get_field('image_membre_equipe');
               if( !empty($image) ): ?>
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                <img  class="responsive-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
               <?php endif;
               if(get_sub_field('nom_membre_equipe'))
               {
