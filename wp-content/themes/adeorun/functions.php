@@ -419,8 +419,6 @@ function create_post_type_html5()
 {
 
   // CPT: Documentation
-    register_taxonomy_for_object_type('category', 'Documentation');// Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'Documentation');
     register_post_type('Documentation', // Register Custom Post Type
         array(
         'labels' => array(
@@ -448,16 +446,10 @@ function create_post_type_html5()
             'excerpt',
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
+        'can_export' => true // Allows export in Tools > Export
     ));
 
 // CPT: Outils
-    register_taxonomy_for_object_type('category', 'Outil');
-    register_taxonomy_for_object_type('post_tag', 'Outil');
     register_post_type('Outil', // Register Custom Post Type
         array(
         'labels' => array(
@@ -485,11 +477,7 @@ function create_post_type_html5()
             'excerpt',
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        )
+        'can_export' => true
     ));
 }
 

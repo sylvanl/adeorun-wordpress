@@ -1,4 +1,4 @@
-<?php /* Template Name: Documentation */ ?>
+<?php /* Template Name: Outils */ ?>
 
 <?php get_header(); ?>
 
@@ -8,16 +8,15 @@
 			<?php
 			// get all the categories from the database
 			$terms = get_terms( array(
-				'taxonomy' => 'documentation_tags',
+				'taxonomy' => 'outil_tags',
 				'hide_empty' => false,
 			) );
-
 				// loop through the categries
 				foreach ($terms as $term) {
 
 					// setup the cateogory ID
 					$term_id= $term->term_id;
-					echo($term_id);
+
 					// Make a header for the cateogry
 					echo "<h2>".$term->name."</h2>";
 					// create a custom wordpress query
