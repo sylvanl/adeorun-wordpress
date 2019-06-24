@@ -22,11 +22,17 @@ get_header(); ?>
           <?php while( have_rows('membres_equipe') ): the_row(); ?>
 
             <div class="col s4">
-              <?php $image = get_field('image_membre_equipe');
-              if( !empty($image) ): ?>
-                <img  class="responsive-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-              <?php endif;
-              if(get_sub_field('nom_membre_equipe'))
+              <div>
+                <?php $image = get_field('image_membre_equipe');
+                if( !empty($image) ): ?>
+                  <img  class="responsive-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                <?php endif; 
+                if(get_sub_field('citation_membre_equipe'))
+                {
+                  echo '<p>' . get_sub_field('citation_membre_equipe') . '</p>';
+                } ?>
+              </div>
+              <?php if(get_sub_field('nom_membre_equipe'))
               {
                 echo '<p>' . get_sub_field('nom_membre_equipe') . '</p>';
               }
