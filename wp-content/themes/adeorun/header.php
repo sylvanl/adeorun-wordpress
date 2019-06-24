@@ -14,6 +14,8 @@
 
 		<?php wp_head(); ?>
 
+		<script src="https://kit.fontawesome.com/b6a96d89d3.js"></script>
+
 	</head>
 	<body <?php body_class(); ?>>
 
