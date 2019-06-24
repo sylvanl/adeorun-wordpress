@@ -33,7 +33,7 @@
 								<a href="<?php echo home_url(); ?>" class="brand-logo">
 									<?php $logo = get_field('logo', 'options');
 									if( !empty($logo) ): ?>
-										<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
+										<img class="responsive-img" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
 									<?php endif; ?>
 								</a>
 							</div>
