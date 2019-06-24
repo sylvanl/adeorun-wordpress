@@ -23,7 +23,7 @@ get_header(); ?>
 
             <div class="col s4">
               <div>
-                <?php $image = get_field('image_membre_equipe');
+                <?php $image = get_sub_field('image_membre_equipe');
                 if( !empty($image) ): ?>
                   <img  class="responsive-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                 <?php endif; 
@@ -32,6 +32,7 @@ get_header(); ?>
                   echo '<p>' . get_sub_field('citation_membre_equipe') . '</p>';
                 } ?>
               </div>
+              
               <?php if(get_sub_field('nom_membre_equipe'))
               {
                 echo '<p>' . get_sub_field('nom_membre_equipe') . '</p>';
