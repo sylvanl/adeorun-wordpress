@@ -85,7 +85,7 @@ get_header(); ?>
         {
           echo '<p>' . get_field('description_recrutement') . '</p>';
         }
-        if(get_sub_field('lien_recrutement') && get_sub_field('texte_bouton_recrutement')): ?>
+        if(get_sub_field('lien_recrutement')): ?>
           <button type="button" url="<?php get_sub_field('lien_recrutement') ?>">
             <?php get_sub_field('texte_bouton_recrutement') ?>
           </button>
@@ -105,7 +105,7 @@ get_header(); ?>
           <div class="row">
             <?php foreach( get_field('galerie_locaux') as $image ): ?>
               <div class="col s4">
-                <?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+                <img class="responsive-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
               </div>
             <?php endforeach; ?>
           </div>        
