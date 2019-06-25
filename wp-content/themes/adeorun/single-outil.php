@@ -3,8 +3,6 @@
 	<main role="main">
     <div class="container">
 
-
-
 					<!-- post title -->
 					  <section>
 
@@ -25,7 +23,5 @@
 
       </div>
 	</main>
-
-
 
 <?php get_footer(); ?>
