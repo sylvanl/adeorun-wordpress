@@ -43,7 +43,7 @@
 
       	      <?php if( have_rows('type_organisateur') ): ?>
       	      <?php $type = 1; ?>
-      	      	<ul>
+
       	      	<?php while( have_rows('type_organisateur') ): the_row();
 
       	      		// vars
@@ -54,7 +54,8 @@
 
       	      		?>
 
-      	      		<li>
+      	      		<div>
+
       	              <?php
       	                    $type += 1;
       	              ?>
@@ -62,10 +63,9 @@
       	      				<h4><?php echo $title; ?></h4>
       	              <p><?php echo $description; ?></p>
 
-      	      		</li>
+                  </div>
+                  
       	      	<?php endwhile; ?>
-      	      	</ul>
-
       	      <?php endif; ?>
 
     </section>
