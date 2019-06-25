@@ -1,4 +1,4 @@
-<?php get_template_part('components/blank-header.php'); ?>
+<?php get_template_part('components/blank-header'); ?>
 
 <!-- header -->
 <header class="header clear" role="banner">

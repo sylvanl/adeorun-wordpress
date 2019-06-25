@@ -1,21 +1,15 @@
 <?php  /* Template Name: BlankSS */ ?>
 
-<!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
+<?php get_template_part('components/head'); ?>
 
-  <?php get_template_part('components/head'); ?>
+  <main role="main">
+    <div class="container">
 
-    <main role="main">
-      <div class="container">
+      <section>
+        <?php the_content(); ?>
+      </section>
 
-        <section>
-          <?php the_content(); ?>
-        </section>
+    </div>
+  </main>
 
-      </div>
-    </main>
-
-  <?php get_template_part('components/scripts'); ?>
-
-	</body>
-</html>
+<?php get_template_part('components/scripts'); ?>
