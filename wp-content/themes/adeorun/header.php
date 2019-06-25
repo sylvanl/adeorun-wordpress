@@ -1,56 +1,34 @@
-<!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
-	<head>
-		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+<?php get_template_part('components/blank-header'); ?>
 
-		<link href="//www.google-analytics.com" rel="dns-prefetch">
-		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+<!-- header -->
+<header class="header clear" role="banner">
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="<?php bloginfo('description'); ?>">
+	<!-- nav -->
+	<nav>
+		<div class="nav-wrapper row">
+			<!-- logo -->
+			<div class="col s2">
+				<a href="<?php echo home_url(); ?>" class="brand-logo">
+					<?php $logo = get_field('logo', 'options');
+					if( !empty($logo) ): ?>
+						<img class="responsive-img" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
+					<?php endif; ?>
+				</a>
+			</div>
+			<!-- /logo -->
 
-		<?php wp_head(); ?>
+			<!-- Recherche d'évenemnts -->
+			<div class="input-field col s2 red-text">
+				<input type="text" placeholder="Recher un évennement" id="autocomplete-input" class="autocomplete red-text" >
+			</div>
+			<!-- /Recherche d'évenemnts -->
 
-		<script src="https://kit.fontawesome.com/b6a96d89d3.js"></script>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<?php html5blank_nav(); ?>
+			</ul>
+		</div>
+	</nav>
+	<!-- /nav -->
 
-	</head>
-	<body <?php body_class(); ?>>
-
-		<!-- wrapper -->
-		<div class="wrapper">
-
-			<!-- header -->
-			<header class="header clear" role="banner">
-
-					<!-- nav -->
-					<nav>
-						<div class="nav-wrapper row">
-							<!-- logo -->
-							<div class="col s2">
-								<a href="<?php echo home_url(); ?>" class="brand-logo">
-									<?php $logo = get_field('logo', 'options');
-									if( !empty($logo) ): ?>
-										<img class="responsive-img" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
-									<?php endif; ?>
-								</a>
-							</div>
-							<!-- /logo -->
-
-							<!-- Recherche d'évenemnts -->
-							<div class="input-field col s2 red-text">
-								<input type="text" placeholder="Recher un évennement" id="autocomplete-input" class="autocomplete red-text" >
-							</div>
-							<!-- /Recherche d'évenemnts -->
-
-							<ul id="nav-mobile" class="right hide-on-med-and-down">
-								<?php html5blank_nav(); ?>
-							</ul>
-						</div>
-					</nav>
-					<!-- /nav -->
-
-			</header>
-			<!-- /header -->
+</header>
+<!-- /header -->
