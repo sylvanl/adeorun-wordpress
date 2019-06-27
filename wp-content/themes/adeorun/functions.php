@@ -56,6 +56,9 @@ if (function_exists('add_theme_support'))
 
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+
+    // Add excerpt to pages
+    add_post_type_support( 'page', 'excerpt' );
 }
 
 /*------------------------------------*\
