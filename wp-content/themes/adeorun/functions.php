@@ -93,14 +93,11 @@ function html5blank_nav()
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts()
 {
-    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-
-    	wp_register_script('materialize', get_template_directory_uri() . '/js/bin/materialize.js', array(), '4.3.0'); // materialize
-        wp_enqueue_script('materialize'); // Enqueue it!
-
-        wp_register_script('theme', get_template_directory_uri() . '/js/bin/site.js', array(), '2.7.1'); // theme
-        wp_enqueue_script('theme'); // Enqueue it!
-    }
+    wp_register_script('jqueryCDN','https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1'); // jqueryCDN
+    wp_enqueue_script('jqueryCDN'); // Enqueue it!    
+    
+    wp_register_script('materializeCDN', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(), '1.0.0'); // materializeCDN
+    wp_enqueue_script('materializeCDN'); // Enqueue it!
 }
 
 // Load HTML5 Blank conditional scripts
@@ -453,16 +450,16 @@ function create_post_type_html5()
     ));
 
 // CPT: Outils
-    register_post_type('Outil', // Register Custom Post Type
+    register_post_type('Outils', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Outils', 'Outil'), // Rename these to suit
-            'singular_name' => __('Outil', 'Outil'),
+            'name' => __('Outils', 'Outils'), // Rename these to suit
+            'singular_name' => __('Outils', 'Outils'),
             'add_new' => __('Ajouter', 'html5blank'),
-            'add_new_item' => __('Ajouter un nouvel outil', 'html5blank'),
+            'add_new_item' => __('Ajouter un nouvel outils', 'html5blank'),
             'edit' => __('Editer', 'html5blank'),
             'edit_item' => __('Editer les outils', 'html5blank'),
-            'new_item' => __('Nouvel outil', 'html5blank'),
+            'new_item' => __('Nouvel outils', 'html5blank'),
             'view' => __('Voir les outils', 'html5blank'),
             'view_item' => __("Voir l'outil", 'html5blank'),
             'search_items' => __('Chercher dans les outils', 'html5blank'),
