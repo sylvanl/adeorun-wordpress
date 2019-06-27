@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 <?php get_header(); ?>
 
@@ -76,3 +78,4 @@
 </div>
 
 <?php get_footer(); ?>
+>>>>>>> 530cbffa28b13fb52d96c57b446b19b3f2b8f4ce
