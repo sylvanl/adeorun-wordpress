@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-
 <div class="content">
 	<div class="container">
       <h1><?php post_type_archive_title(); ?></h1>
@@ -10,9 +9,9 @@
 			$taxonomy = 'documentation_tags';
 
 			$term_args = array(
-			 'orderby' => 'name',
-			 'order' => 'ASC'
-			 );
+			'orderby' => 'name',
+			'order' => 'ASC'
+			);
 
 			$terms = get_terms($taxonomy,$term_args);?>
 
