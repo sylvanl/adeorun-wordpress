@@ -1,232 +1,233 @@
-<?php
+<?php /* Template Name: Documentation */ ?>
 
-get_header();
+<?php get_header(); 
+var_dump( get_categories() );
+print("</br>");
+print("</br>");
 
-// Class
-$blog_classes 	= array();
-$section_class 	= array();
+var_dump( get_terms( 'documentation_tags', array('hide_empty' => true) ) );
 
+print("</br>");
+print("</br>");
 
-// Class | Layout
-if( $_GET && key_exists( 'mfn-b', $_GET ) ){
-	$blog_layout = esc_html( $_GET['mfn-b'] ); // demo
-} else {
-	$blog_layout = mfn_opts_get( 'blog-layout', 'classic' );
-}
-$blog_classes[] = $blog_layout;
-
-// Layout | Masonry Tiles | Quick Fix
-if( $blog_layout == 'masonry tiles' ){
-	$blog_layout = 'masonry';
-}
-
-
-// Class | Columns
-if( $_GET && key_exists( 'mfn-bc', $_GET ) ){
-	$blog_classes[] = 'col-'. esc_html( $_GET['mfn-bc'] ); // demo
-} else {
-	$blog_classes[] = 'col-'. mfn_opts_get( 'blog-columns', 3 );
-}
-
-
-// Full width
-if( $_GET && key_exists( 'mfn-bfw', $_GET ) ){
-	$section_class[] = 'full-width'; // demo
-}
-if( mfn_opts_get( 'blog-full-width' ) && ( $blog_layout == 'masonry' ) ){
-	$section_class[] = 'full-width';
-}
-$section_class = implode( ' ', $section_class );
-
-
-// Isotope
-if( $_GET && key_exists( 'mfn-iso', $_GET ) ){
-	$isotope = true; // demo
-} elseif(  mfn_opts_get( 'blog-isotope' ) ) {
-	$isotope = true;
-} else {
-	$isotope = false;
-}
-
-if( $isotope || ( $blog_layout == 'masonry' ) ){
-	$blog_classes[] = 'isotope';
-}
-
-
-// Ajax | load more
-$load_more = mfn_opts_get( 'blog-load-more' );
-
-
-// Translate
-$translate['filter'] 		= mfn_opts_get('translate') ? mfn_opts_get('translate-filter','Filter by') : __('Filter by','betheme');
-$translate['tags'] 			= mfn_opts_get('translate') ? mfn_opts_get('translate-tags','Tags') : __('Tags','betheme');
-$translate['authors'] 		= mfn_opts_get('translate') ? mfn_opts_get('translate-authors','Authors') : __('Authors','betheme');
-$translate['all'] 			= mfn_opts_get('translate') ? mfn_opts_get('translate-all','Show all') : __('Show all','betheme');
-$translate['categories'] 	= mfn_opts_get('translate') ? mfn_opts_get('translate-categories','Categories') : __('Categories','betheme');
-$translate['item-all'] 		= mfn_opts_get('translate') ? mfn_opts_get('translate-item-all','All') : __('All','betheme');
+wp_list_categories();
+	
 ?>
 
-<!-- #Content -->
-<div id="Content">
-	<div class="content_wrapper clearfix">
+<?php
 
-		<!-- .sections_group -->
-		<div class="sections_group">
+/* ADD 1 view for this post */
+$post_views = (get_post_meta(get_the_ID(), "post_views", true) > 0 ? get_post_meta(get_the_ID(), "post_views", true) : "0");
+update_post_meta(get_the_ID(), "post_views", (int)$post_views + 1);
+
+if (get_post_type() == "port") {
+    $post_categ = '';
+    $new_term_list = get_the_terms(get_the_id(), "portcat");
+    if (is_array($new_term_list)) {
+        foreach ($new_term_list as $term) {
+            $post_categ = $post_categ . '<a href="'.get_term_link($term->slug, "portcat").'">'.$term->name.'</a>' . ', ';
+        }
+    }
+} else {
+    if (get_the_category()) $categories = get_the_category();
+    $post_categ = '';
+    if ($categories) {
+        foreach ($categories as $category) {
+            $post_categ = $post_categ . '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . ', ';
+        }
+    }
+}
+
+if (get_the_tags() !== '') {
+    $posttags = get_the_tags();
+
+}
+if ($posttags) {
+    $post_tags = '';
+    $post_tags_compile = '<span class="preview_meta_tags">';
+    foreach ($posttags as $tag) {
+        $post_tags = $post_tags . '<a href="?tag=' . $tag->slug . '">' . $tag->name . '</a>' . ', ';
+    }
+    $post_tags_compile .= ' ' . trim($post_tags, ', ') . '</span>';
+} else {
+    $post_tags_compile = '';
+}
+
+?>
+
+<div <?php post_class("row stand_post"); ?>>
+
+<?php
+if (get_post_format() == "image" || get_post_format() == "video" || strlen($featured_image[0])>0) {
+    echo  '<div class="span8">';
+
+    if (get_post_format() == "image") {
+        wp_enqueue_script('gt3_nivo_js', get_template_directory_uri() . '/js/nivo.js', array(), false, true);
+        if (isset($gt3_theme_pagebuilder['post-formats']['images']) && is_array($gt3_theme_pagebuilder['post-formats']['images'])) {
+            $compile_pf = "";
+            if (is_array($gt3_theme_pagebuilder['post-formats']['images'])) {
+
+                $compile_pf .= '
+                                                <div class="slider-wrapper theme-default">
+                                                    <div class="nivoSlider">
+                                            ';
+
+                foreach ($gt3_theme_pagebuilder['post-formats']['images'] as $imgid => $img) {
+                    $compile_pf .= '<img class="pf_img" src="' . aq_resize(wp_get_attachment_url($img['attach_id']), "1200", "700", true, true, true) . '" alt="" />';
+                }
+
+                $compile_pf .= '
+                                                    </div>
+                                                </div>
+                                            ';
+            }
+
+            $GLOBALS['showOnlyOneTimeJS']['nivo_slider'] = "
+            <script>
+                jQuery(document).ready(function($) {
+                    $('.nivoSlider').each(function(){
+                        $(this).nivoSlider({
+                            directionNav: true,
+                            controlNav: false,
+                            effect:'sliceUpDownLeft',
+                            animSpeed: 600,
+                            pauseTime:3000
+                        });
+                    });
+                });
+            </script>
+            ";
+
+            echo  $compile_pf;
+        }
+    } elseif (get_post_format() == "video") {
+        $compile_pf = "";
+        $uniqid = mt_rand(0, 9999);
+        global $YTApiLoaded, $allYTVideos;
+        if (empty($YTApiLoaded)) {
+            $YTApiLoaded = false;
+        }
+        if (empty($allYTVideos)) {
+            $allYTVideos = array();
+        }
+
+        $video_url = $gt3_theme_pagebuilder['post-formats']['videourl'];
+        if (isset($gt3_theme_pagebuilder['post-formats']['video_height'])) {
+            $video_height = $gt3_theme_pagebuilder['post-formats']['video_height'];
+        } else {
+            $video_height = 700;
+        }
+
+        #YOUTUBE
+        $is_youtube = substr_count($video_url, "youtu");
+        if ($is_youtube > 0) {
+            $videoid = substr(strstr($video_url, "="), 1);
+            $compile_pf .= "<div id='player{$uniqid}'></div>";
+
+            array_push($allYTVideos, array("h" => $video_height, "w" => "100%", "videoid" => $videoid, "uniqid" => $uniqid));
+        }
+
+        #VIMEO
+        $is_vimeo = substr_count($video_url, "vimeo");
+        if ($is_vimeo > 0) {
+            $videoid = substr(strstr($video_url, "m/"), 2);
+            $compile_pf .= "
+                                            <iframe src=\"https://player.vimeo.com/video/" . $videoid . "\" width=\"100%\" height=\"" . $video_height . "\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                                        ";
+        }
+
+        echo  $compile_pf;
+    } else {
+        echo  '<img src="' . aq_resize($featured_image[0], "1270", "700", true, true, true) . '" alt="" />';
+    }
+
+    echo  '</div>';
+}
+
+if (get_post_format() == "image" || get_post_format() == "video" || strlen($featured_image[0])>0) {
+    echo  '<div class="span4">';
+} else {
+    echo  '<div class="span12">';
+}
+
+echo  '
+                    <a href="'.get_permalink().'"><h1 class="entry-title blogpost_title">' . get_the_title() . '</h1></a>
+                    <div class="preview_meta">
+                        <div class="block_likes">
+                            <div class="post-comments"><i class="stand_icon icon-comment-alt"></i>
+                                <a href="' . get_comments_link() . '"><span>' . get_comments_number(get_the_ID()) . '</span></a>
+                            </div>
+                            <div class="post-views"><i class="stand_icon icon-eye-open"></i>
+                                <span>'.$post_views.'</span>
+                            </div>
+                            <div class="post_likes post_likes_add '.(isset($_COOKIE['like' . get_the_ID()]) ? "already_liked" : "") . '" data-postid="' . get_the_ID().'" data-modify="like_post">
+                                <i class="stand_icon '.((isset($all_likes[get_the_ID()]) && $all_likes[get_the_ID()] > 0) ? "icon-heart" : "icon-heart-empty").'"></i>
+                                <span>'.((isset($all_likes[get_the_ID()]) && $all_likes[get_the_ID()] > 0) ? $all_likes[get_the_ID()] : 0).'</span>
+                            </div>
+                        </div>
 
 
-			<div class="extra_content">
-				<?php
-					if( get_option( 'page_for_posts' ) || mfn_opts_get( 'blog-page' ) ){
-						if( category_description() ){
-							echo '<div class="section the_content category_description">';
-								echo '<div class="section_wrapper">';
-									echo '<div class="the_content_wrapper">';
-										echo category_description();
-									echo '</div>';
-								echo '</div>';
-							echo '</div>';
-						} else {
-							mfn_builder_print( mfn_ID(), true );
-						}
-					}
+                        <div class="block_post_meta_stand block_cats">
+                            <i class="icon-folder-open-alt"></i>
+                            ' . trim($post_categ, ', ') . '
+                        </div>
+
+                        <div class="block_post_meta_stand block_author">
+                            <i class="icon-user"></i>
+                            <a href="' . get_author_posts_url(get_the_author_meta('ID')) . '">' . get_the_author_meta('display_name') . '</a>
+                        </div>';
+
+if (strlen($post_tags_compile)>0) {
+    echo  '
+                            <div class="block_post_meta_stand block_tags">
+                                <i class="icon-tags"></i>
+                                ' . $post_tags_compile . '
+                            </div>
+                            ';
+}
+
+echo  '            </div>
+                    <article>
+                        ' . ((strlen(get_the_excerpt()) > 0) ? get_the_excerpt() : do_shortcode(get_the_content())) . '
+                    </article>
+
+                    <a href="'.get_permalink().'" class="post_read_more_small">'.__('Read More &rsaquo;', 'theme_localization').'</a>
+                    ';
+
+echo  '</div>';
+
+echo  '</div>';
+?>
+
+		<?php $args = array(
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'category_name' => 'adeorun-news',
+			'posts_per_page' => 5,
+			);
+			$arr_posts = new WP_Query( $args );
+
+		if ( $arr_posts->have_posts() ) :
+
+			while ( $arr_posts->have_posts() ) :
+				$arr_posts->the_post();
 				?>
-			</div>
-
-
-			<?php if( ( $filters = mfn_opts_get( 'blog-filters' ) ) && ( is_home() || is_category() || is_tag() || is_author() ) ): ?>
-
-				<div class="section section-filters">
-					<div class="section_wrapper clearfix">
-
-						<?php
-							$filters_class = '';
-
-							if( $isotope ){
-								$filters_class .= ' isotope-filters';
-							}
-
-							if( $filters != 1 ){
-								$filters_class .= ' only '. $filters;
-							}
-						?>
-
-						<!-- #Filters -->
-						<div id="Filters" class="column one <?php echo $filters_class; ?>">
-
-							<ul class="filters_buttons">
-								<li class="label"><?php echo $translate['filter']; ?></li>
-								<li class="categories"><a class="open" href="#"><i class="icon-docs"></i><?php echo $translate['categories']; ?><i class="icon-down-dir"></i></a></li>
-								<li class="tags"><a class="open" href="#"><i class="icon-tag"></i><?php echo $translate['tags']; ?><i class="icon-down-dir"></i></a></li>
-								<li class="authors"><a class="open" href="#"><i class="icon-user"></i><?php echo $translate['authors']; ?><i class="icon-down-dir"></i></a></li>
-								<li class="reset"><a class="close" data-rel="*" href="<?php echo get_permalink( mfn_ID() ); ?>"><i class="icon-cancel"></i><?php echo $translate['all']; ?></a></li>
-							</ul>
-
-							<div class="filters_wrapper">
-								<ul class="categories">
-									<?php
-										echo '<li class="reset-inner"><a data-rel="*" href="'. get_permalink( mfn_ID() ) .'">'. $translate['item-all'] .'</a></li>';
-										if( $categories = get_categories() ){
-											$exclude = mfn_get_excluded_categories();
-											foreach( $categories as $category ){
-												if( $exclude && in_array( $category->slug, $exclude ) ){
-													continue;
-												}
-												echo '<li><a data-rel=".category-'. $category->slug .'" href="'. get_term_link($category) .'">'. $category->name .'</a></li>';
-											}
-										}
-									?>
-									<li class="close"><a href="#"><i class="icon-cancel"></i></a></li>
-								</ul>
-								<ul class="tags">
-									<?php
-										echo '<li class="reset-inner"><a data-rel="*" href="'. get_permalink( mfn_ID() ) .'">'. $translate['item-all'] .'</a></li>';
-										if( $tags = get_tags() ){
-											foreach( $tags as $tag ){
-												echo '<li><a data-rel=".tag-'. $tag->slug .'" href="'. get_tag_link($tag) .'">'. $tag->name .'</a></li>';
-											}
-										}
-									?>
-									<li class="close"><a href="#"><i class="icon-cancel"></i></a></li>
-								</ul>
-								<ul class="authors">
-									<?php
-										echo '<li class="reset-inner"><a data-rel="*" href="'. get_permalink( mfn_ID() ) .'">'. $translate['item-all'] .'</a></li>';
-
-										$authors = mfn_get_authors();
-										if( is_array( $authors ) ){
-											foreach( $authors as $auth ){
-												echo '<li><a data-rel=".author-'. mfn_slug( $auth->data->user_login ) .'" href="'. get_author_posts_url($auth->ID) .'">'. $auth->data->display_name .'</a></li>';
-											}
-
-										}
-									?>
-									<li class="close"><a href="#"><i class="icon-cancel"></i></a></li>
-								</ul>
-							</div>
-
-						</div>
-
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<?php
+					if ( has_post_thumbnail() ) :
+						the_post_thumbnail();
+					endif;
+					?>
+					<header class="entry-header">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</header>
+					<div class="entry-content">
+						<?php the_excerpt(); ?>
+						<a href="<?php the_permalink(); ?>">Read More</a>
 					</div>
-				</div>
+				</article>
+				<?php
+			endwhile;
+		endif;
 
-			<?php endif; ?>
-
-
-			<div class="section <?php echo $section_class; ?>">
-				<div class="section_wrapper clearfix">
-
-					<div class="column one column_blog">
-						<div class="blog_wrapper isotope_wrapper">
-
-							<div class="posts_group lm_wrapper <?php echo implode( ' ', $blog_classes ); ?>">
-								<?php
-
-									// Loop attributes
-									$attr = array(
-										'featured_image' 	=> false,
-										'filters' 				=> $filters,
-									);
-
-									if( $load_more ){
-										$attr['featured_image'] = 'no_slider';	// no slider if load more
-									}
-									if( mfn_opts_get( 'blog-images' ) ){
-										$attr['featured_image'] = 'image';	// images only option
-									}
-
-									echo mfn_content_post( false, false, $attr );
-								?>
-							</div>
-
-							<?php
-								// pagination
-								if( function_exists( 'mfn_pagination' ) ):
-
-									echo mfn_pagination( false, $load_more );
-
-								else:
-									?>
-										<div class="nav-next"><?php next_posts_link(__('&larr; Older Entries', 'betheme')) ?></div>
-										<div class="nav-previous"><?php previous_posts_link(__('Newer Entries &rarr;', 'betheme')) ?></div>
-									<?php
-								endif;
-							?>
-
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-
-		</div>
-
-		<!-- .four-columns - sidebar -->
-		<?php get_sidebar( 'blog' ); ?>
-
-	</div>
-</div>
-
-<?php get_footer();
-
-// Omit Closing PHP Tags
+get_footer(); ?>
