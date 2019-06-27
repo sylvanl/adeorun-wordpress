@@ -3,6 +3,48 @@
 	<main role="main">
     <div class="container">
 
+			<aside class="documentation_tags">
+				<?php
+					$taxonomy = 'documentation_tags';
+
+					$term_args = array(
+					 'orderby' => 'name',
+					 'order' => 'ASC'
+					 );
+
+					$terms = get_terms($taxonomy,$term_args);?>
+
+		    <?php if ($terms) { foreach($terms as $term) {
+
+					$args = array(
+					'post_type' => 'Documentation',
+					'tax_query' => array(
+					array(
+						'taxonomy' => 'documentation_tags',
+						'terms' => array($term->term_id),
+						'include_children' => true,
+						'operator' => 'IN'
+						)
+					)
+				);
+		    $my_query = new WP_Query($args); if ($my_query->have_posts()) { ?>
+					<div class="row">
+		        <div id="<?php echo $term->slug; ?>">
+		  				<p class="term-title"><?php echo $term->name; ?></p>
+
+		  				<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+		  					<div class="col-sm-2">
+		  						<p><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to ', 'textdomain'); ?><?php the_title_attribute(); ?>"><?php the_title(); ?></a></p>
+		  					</div>
+		  				<?php endwhile; ?>
+					</div>
+		    </div>
+
+				<?php }
+				 } } ?>
+				<?php wp_reset_query(); ?>
+			</aside>
+
 			<!-- post title -->
 			<section>
 
