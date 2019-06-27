@@ -1,5 +1,3 @@
-<?php /* Template Name: Outils */ ?>
-
 <?php get_header(); ?>
 
 		<div id="container">
