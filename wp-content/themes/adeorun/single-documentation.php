@@ -3,7 +3,6 @@
 	<main role="main">
     <div class="container">
 
-
 			<!-- post title -->
 			<section>
 

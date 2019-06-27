@@ -48,22 +48,22 @@ get_header(); ?>
                     echo '<p>' . get_sub_field('description_membre_equipe') . '</p>';
                   }
                   if(get_sub_field('email_membre_equipe')): ?>
-                    <button type="button" url="<?php get_sub_field('email_membre_equipe') ?>">
+                    <button class="waves-effect waves-light btn" type="button" url="<?php get_sub_field('email_membre_equipe') ?>">
                       <i class="fas fa-envelope"></i>
                     </button>
                   <?php endif;
                   if(get_sub_field('facebook_membre_equipe')): ?>
-                    <button type="button" url="<?php get_sub_field('facebook_membre_equipe') ?>">
+                    <button class="waves-effect waves-light btn" type="button" url="<?php get_sub_field('facebook_membre_equipe') ?>">
                       <i class="fab fa-facebook-f"></i>
                     </button>
                   <?php endif;
                   if(get_sub_field('twitter_membre_equipe')): ?>
-                    <button type="button" url="<?php get_sub_field('twitter_membre_equipe') ?>">
+                    <button class="waves-effect waves-light btn" type="button" url="<?php get_sub_field('twitter_membre_equipe') ?>">
                       <i class="fab fa-twitter"></i>
                     </button>
                   <?php endif;
                   if(get_sub_field('linkedin_membre_equipe')): ?>
-                    <button type="button" url="<?php get_sub_field('linkedin_membre_equipe') ?>">
+                    <button class="waves-effect waves-light btn" type="button" url="<?php get_sub_field('linkedin_membre_equipe') ?>">
                       <i class="fab fa-linkedin-in"></i>
                     </button>
                   <?php endif; ?>

@@ -569,7 +569,7 @@ function documentation_tags_taxonomy() {
     'show_admin_column' => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'documentation tags' ),
+    'rewrite' => array( 'slug' => 'documentation_tags' ),
   ));
 }
 add_action( 'init', 'documentation_tags_taxonomy', 0 );
