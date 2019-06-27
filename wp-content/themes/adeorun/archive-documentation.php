@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
-<h1 class="container"><?php post_type_archive_title(); ?></h1>
 
 <div class="content">
 	<div class="container">
+      <h1><?php post_type_archive_title(); ?></h1>
+      <p>Retrouvez tout ce dont vous avez besoin</p>
+
 		<?php
 			$taxonomy = 'documentation_tags';
 
