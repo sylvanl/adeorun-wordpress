@@ -455,10 +455,10 @@ function create_post_type_html5()
             'name' => __('Outils', 'Outils'), // Rename these to suit
             'singular_name' => __('Outils', 'Outils'),
             'add_new' => __('Ajouter', 'html5blank'),
-            'add_new_item' => __('Ajouter un nouvel outils', 'html5blank'),
+            'add_new_item' => __('Ajouter un nouvel outil', 'html5blank'),
             'edit' => __('Editer', 'html5blank'),
             'edit_item' => __('Editer les outils', 'html5blank'),
-            'new_item' => __('Nouvel outils', 'html5blank'),
+            'new_item' => __('Nouvel outil', 'html5blank'),
             'view' => __('Voir les outils', 'html5blank'),
             'view_item' => __("Voir l'outil", 'html5blank'),
             'search_items' => __('Chercher dans les outils', 'html5blank'),
@@ -478,6 +478,37 @@ function create_post_type_html5()
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export' => true
     ));
+
+    // CPT: Evenements
+        register_post_type('Evenements', // Register Custom Post Type
+            array(
+            'labels' => array(
+                'name' => __('Evenements', 'Evenements'), // Rename these to suit
+                'singular_name' => __('Evenement', 'Evenements'),
+                'add_new' => __('Ajouter', 'html5blank'),
+                'add_new_item' => __('Ajouter un évènement', 'html5blank'),
+                'edit' => __('Editer', 'html5blank'),
+                'edit_item' => __("Editer l'évènement", 'html5blank'),
+                'new_item' => __('Nouvel évènement', 'html5blank'),
+                'view' => __('Voir les évènements', 'html5blank'),
+                'view_item' => __("Voir l'évènement", 'html5blank'),
+                'search_items' => __('Chercher dans les évènements', 'html5blank'),
+                'not_found' => __("Il n'y a pas d'évènements", 'html5blank'),
+                'not_found_in_trash' => __("Pas d'évènements trouvés dans la corbeille", 'html5blank')
+            ),
+            'public' => true,
+            'show_ui' => true,
+            'menu_position' => 5,
+            'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+            'has_archive' => true,
+            'supports' => array(
+                'title',
+                'editor',
+                'excerpt',
+                'thumbnail'
+            ), // Go to Dashboard Custom HTML5 Blank post for supports
+            'can_export' => true
+        ));
 }
 
 /*------------------------------------*\
@@ -612,4 +643,43 @@ function outil_tags_taxonomy() {
   ));
 }
 add_action( 'init', 'outil_tags_taxonomy', 0 );
+
+
+
+//========================= Tags for Evenements Custom Type ===========================//
+
+//hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
+function evenement_tags_taxonomy() {
+// Labels part for the GUI
+
+  $evenement_tags = array(
+    'name' => _x( "Types d'évènement", 'evenements' ),
+    'singular_name' => _x( 'Type événement', 'evenements' ),
+    'search_items' =>  __( "Chercher des types d'événements" ),
+    'popular_items' => __( "Types d'évènement populaires" ),
+    'all_items' => __( "Toutes les types d'évènement" ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Editer la catégorie' ),
+    'update_item' => __( 'Mettre à jour' ),
+    'add_new_item' => __( 'Ajouter une catégorie' ),
+    'new_item_name' => __( 'Nouvelle documentation sur la catégorie' ),
+    'separate_items_with_commas' => __( 'Séparer les catégories avec des virgules' ),
+    'add_or_remove_items' => __( 'Ajouter ou retirer des catégories' ),
+    'choose_from_most_used' => __( 'Choisir parmi les plus utilisées' ),
+    'menu_name' => __( "Types d'évènement" ),
+  );
+
+// Now register the non-hierarchical taxonomy like tag. . Replace the parameter portfolios withing the array by the name of your custom post type.
+  register_taxonomy('evenement_tags','evenements',array(
+    'hierarchical' => true,
+    'labels' => $evenement_tags,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'evenement tags' ),
+  ));
+}
+add_action( 'init', 'evenement_tags_taxonomy', 0 );
 ?>
