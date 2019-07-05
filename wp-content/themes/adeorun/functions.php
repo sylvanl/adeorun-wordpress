@@ -93,9 +93,8 @@ function html5blank_nav()
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts()
 {
-    wp_register_script('jqueryCDN','https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1'); // jqueryCDN
-    wp_enqueue_script('jqueryCDN'); // Enqueue it!    
-    
+    wp_enqueue_script('jquery');
+
     wp_register_script('materializeCDN', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(), '1.0.0'); // materializeCDN
     wp_enqueue_script('materializeCDN'); // Enqueue it!
 }
