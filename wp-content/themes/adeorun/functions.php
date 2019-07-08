@@ -436,6 +436,7 @@ function create_post_type_html5()
         ),
         'public' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'menu_position' => 3,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
@@ -467,6 +468,7 @@ function create_post_type_html5()
         ),
         'public' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'menu_position' => 5,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
@@ -499,6 +501,7 @@ function create_post_type_html5()
             'public' => true,
             'show_ui' => true,
             'menu_position' => 5,
+            'show_in_rest' => true,
             'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
             'has_archive' => true,
             'supports' => array(
