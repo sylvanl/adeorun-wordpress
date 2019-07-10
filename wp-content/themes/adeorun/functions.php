@@ -686,3 +686,86 @@ function evenement_tags_taxonomy() {
 }
 add_action( 'init', 'evenement_tags_taxonomy', 0 );
 ?>
+
+
+
+<?php
+// Test Gravity Form: Repeater field
+// Adjust your form ID
+add_filter( 'gform_form_post_get_meta_2', 'add_my_field' );
+function add_my_field( $form ) {
+
+    // Create a Single Line text field for the team member's name
+    $name = GF_Fields::create( array(
+        'type'   => 'text',
+        'id'     => 1001, // The Field ID must be unique on the form
+        'formId' => $form['id'],
+        'label'  => 'Nom du circuit',
+        'pageNumber'  => 1, // Ensure this is correct
+    ) );
+
+    // Create an email field for the team member's email address
+    $distance = GF_Fields::create( array(
+        'type'   => 'number',
+        'id'     => 1001, // The Field ID must be unique on the form
+        'formId' => $form['id'],
+        'label'  => 'Distance (en km)',
+        'pageNumber'  => 1, // Ensure this is correct
+    ) );
+
+    // Create an email field for the team member's email address
+    $price = GF_Fields::create( array(
+        'type'   => 'number',
+        'id'     => 1002, // The Field ID must be unique on the form
+        'formId' => $form['id'],
+        'label'  => "Prix d'inscrption",
+        'pageNumber'  => 3, // Ensure this is correct
+    ) );
+
+    // Create an email field for the team member's email address
+    $runners = GF_Fields::create( array(
+        'type'   => 'number',
+        'id'     => 1003, // The Field ID must be unique on the form
+        'description' => 'Laisser vide si illimité',
+        'formId' => $form['id'],
+        'label'  => 'Nombre de coureurs maximum',
+        'pageNumber'  => 1, // Ensure this is correct
+    ) );
+
+    // Create an email field for the team member's email address
+    $infos = GF_Fields::create( array(
+        'type'   => 'text',
+        'id'     => 1004, // The Field ID must be unique on the form
+        'formId' => $form['id'],
+        'label'  => 'Informations diverses',
+        'pageNumber'  => 1, // Ensure this is correct
+    ) );
+
+    // Create a repeater for the team members and add the name and email fields as the fields to display inside the repeater.
+    $circuit = GF_Fields::create( array(
+        'type'             => 'repeater',
+        'description'      => '',
+        'id'               => 1010, // The Field ID must be unique on the form
+        'formId'           => $form['id'],
+        'addButtonText'    => 'Ajouter un circuit', // Optional
+        'removeButtonText' => 'Retirer un circuit', // Optional
+        'pageNumber'       => 1, // Ensure this is correct
+        'fields'           => array( $name, $distance, $price, $runners, $infos ), // Add the fields here.
+    ) );
+
+    $form['fields'][] = $circuit;
+
+    return $form;
+}
+
+// Remove the field before the form is saved. Adjust your form ID
+add_filter( 'gform_form_update_meta_2', 'remove_my_field', 10, 3 );
+function remove_my_field( $form_meta, $form_id, $meta_name ) {
+
+    if ( $meta_name == 'display_meta' ) {
+        // Remove the Repeater field: ID 1010
+        $form_meta['fields'] = wp_list_filter( $form_meta['fields'], array( 'id' => 1010 ), 'NOT' );
+    }
+
+    return $form_meta;
+}
