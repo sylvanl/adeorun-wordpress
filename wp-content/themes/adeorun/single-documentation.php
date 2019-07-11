@@ -3,6 +3,7 @@
 	<main role="main">
     <div class="container">
 
+<!-- Mini menu -->
 			<aside class="documentation_tags">
 				<?php
 					$taxonomy = 'documentation_tags';
@@ -44,6 +45,7 @@
 				 } } ?>
 				<?php wp_reset_query(); ?>
 			</aside>
+<!-- /Mini menu -->
 
 			<!-- post title -->
 			<section>
