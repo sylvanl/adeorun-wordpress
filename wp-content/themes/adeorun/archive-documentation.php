@@ -13,6 +13,7 @@
 echo '<ul>';
 
 foreach ( $terms as $term ) {
+$image = get_field('image', $term, false);
 
     // The $term is an object, so we don't need to specify the $taxonomy.
     $term_link = get_term_link( $term );
@@ -21,9 +22,14 @@ foreach ( $terms as $term ) {
     if ( is_wp_error( $term_link ) ) {
         continue;
     }
+?>
+    <!-- // We successfully got a link. Print it out. -->
+		<img src="<?php echo $image[0]; ?>
 
-    // We successfully got a link. Print it out.
+		<?php
     echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+
+
 }
 
 
