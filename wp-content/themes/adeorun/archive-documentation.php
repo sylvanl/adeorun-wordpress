@@ -10,7 +10,7 @@
 <?php
 		$terms = get_terms( array( 'taxonomy' => 'documentation_tags', 'parent' => 0 ) );
 
-echo '<ul>';
+echo '<div>';
 
 foreach ( $terms as $term ) {
 $image = get_field('image', $term, false);
@@ -21,19 +21,17 @@ $image = get_field('image', $term, false);
     // If there was an error, continue to the next term.
     if ( is_wp_error( $term_link ) ) {
         continue;
-    }
-?>
-    <!-- // We successfully got a link. Print it out. -->
-		<img src="<?php echo $image[0]; ?>
+    } ?>
 
-		<?php
-    echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+    <!-- // We successfully got a link. Print it out. -->
+		<img src="<?php echo $image[0]; ?>">
+		<?php echo '<p><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></p>';
 
 
 }
 
 
-echo '</ul>'; ?>
+echo '</div>'; ?>
 
 	</div>
 </div>
