@@ -599,6 +599,7 @@ function documentation_tags_taxonomy() {
     'hierarchical' => true,
     'labels' => $documentation_tags,
     'show_ui' => true,
+    'show_in_rest' => true,
     'show_admin_column' => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var' => true,
@@ -639,10 +640,11 @@ function outil_tags_taxonomy() {
     'hierarchical' => true,
     'labels' => $outil_tags,
     'show_ui' => true,
+    'show_in_rest' => true,
     'show_admin_column' => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'outil tags' ),
+    'rewrite' => array( 'slug' => 'outil_tags' ),
   ));
 }
 add_action( 'init', 'outil_tags_taxonomy', 0 );
@@ -678,13 +680,17 @@ function evenement_tags_taxonomy() {
     'hierarchical' => true,
     'labels' => $evenement_tags,
     'show_ui' => true,
+    'show_in_rest' => true,
     'show_admin_column' => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'evenement tags' ),
+    'rewrite' => array( 'slug' => 'evenement_tags' ),
   ));
 }
 add_action( 'init', 'evenement_tags_taxonomy', 0 );
+
+
+
 ?>
 
 
