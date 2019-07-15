@@ -71,27 +71,37 @@
 						<section>
 
 							<h3>A découvrir également</h3>
-							<?php
-							$args = array( 'numberposts' => "3", 'order'=> 'ASC', 'orderby' => 'title' );
-							$postslist = get_posts( $args );
-							foreach ($postslist as $post) :  setup_postdata($post); ?>
-									<div>
-										<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-												<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-											</a>
-										<?php endif; ?>
-										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-											<?php the_title(); // Fullsize image for the single post ?>
-										</a>
 
-										<div class="post_details">
-												<p class="author_pic"><?php echo get_avatar( get_the_author_meta('<? php the_author_ID ?>') , 32 ); ?> </p>
-												<p class="author_name"><?php the_author_posts_link(); ?></p>
-												<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></p>
+							<div class="row">
+								<?php
+								$args = array( 'numberposts' => "3", 'order'=> 'ASC', 'orderby' => 'title' );
+								$postslist = get_posts( $args );
+								foreach ($postslist as $post) :  setup_postdata($post); ?>
+								<div class="col s4">
+									<div class="card">
+										<div class="card-image">
+											<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
+												<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+													<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+												</a>
+											<?php endif; ?>
+
+										</div>
+										<div class="card-content">
+											<span class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); // Fullsize image for the single post ?> </a></span>
+											<p class="author_pic"><?php echo get_avatar( get_the_author_meta('<? php the_author_ID ?>') , 32 ); ?> </p>
+											<p class="author_name"><?php the_author_posts_link(); ?></p>
+											<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></p>
+										</div>
+										<div class="card-action">
+											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+												Voir l'article
+											</a>
 										</div>
 									</div>
-							<?php endforeach; ?>
+								</div>
+								<?php endforeach; ?>
+							</div>
 
 						</section>
 
