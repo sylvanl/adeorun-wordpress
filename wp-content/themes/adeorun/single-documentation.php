@@ -75,7 +75,7 @@
 	                    $step += 1;
 	              ?>
 	      				<h4><?php echo $name; ?></h4>
-	              <p><?php echo $content; ?></p>
+	              		<p><?php echo $content; ?></p>
 	      				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 	      		</li>
 	      	<?php endwhile; ?>
