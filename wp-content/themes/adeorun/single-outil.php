@@ -2,23 +2,22 @@
 
 <?php $post_type = get_post_type_object(get_post_type($post)); ?>
 	<main role="main">
-    <div class="container">
+   	 <div class="container">
 
-					<!-- post title -->
-					  <section>
+	<!-- post title -->
+		<section>
+			<h1><?php echo $post_type->labels->name; ?></h1>
+		    <h2>
+		    	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+		    </h2>
 
-							<h1><?php echo $post_type->labels->name; ?></h1>
-		    			<h2>
-		    				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		    			</h2>
+		</section>
+	<!-- /post title -->
 
-						</section>
-					<!-- /post title -->
-
-      		<!-- Dynamic content -->
-						<section>
-							<?php the_content(); ?>
-						</section>
+    <!-- Dynamic content -->
+		<section>
+			<?php the_content(); ?>
+		</section>
 					<!-- /Dynamic content -->
 
       </div>

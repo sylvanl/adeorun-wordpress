@@ -3,7 +3,7 @@
 
   <div class="sub_header">
     <h1 class="white_text"><?php echo single_cat_title(); ?></h1>
-    <input type="text" name="search" id="" value="Recherche">
+    <input type="text" placeholder="Recherche">
   </div>
 
 <div class="container">
@@ -27,7 +27,7 @@ echo '</div>';
 foreach ($child_terms as $term) {
 
 // List the child topic
-echo '<h3>' . $term->name . '</h3>';
+echo '<h3 id="<?php # . $term.slug ?>">' . $term->name . '</h3>';
 
 // Get posts from that child topic
 $query = new WP_Query( array(
