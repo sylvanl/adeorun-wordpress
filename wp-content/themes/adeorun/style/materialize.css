@@ -9330,6 +9330,12 @@ p {
   font-size: 17px;
 }
 
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .subtitle {
   font-size: 18px;
   font-style: italic;
@@ -9338,6 +9344,7 @@ p {
 .sub_heading {
   font-family: 'PT Sans', sans-serif;
   font-size: 24px;
+  margin-bottom: 5%;
 }
 
 .sub_header {
@@ -9349,6 +9356,27 @@ p {
 
 .white_text {
   color: #FFFFFF;
+}
+
+aside {
+  position: absolute;
+  width: 15%;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+::-ms-input-placeholder {
+  color: white;
+}
+
+::placeholder {
+  color: white;
 }
 
 .team_image {
