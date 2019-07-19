@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 	<main role="main">
-    <div class="container">
 
 <!-- Mini menu -->
 			<aside class="documentation_tags">
@@ -30,8 +29,8 @@
 				);
 		    $my_query = new WP_Query($args); if ($my_query->have_posts()) { ?>
 					<div class="row">
-		        <div id="<?php echo $term->slug; ?>">
-		  				<p class="term-title"><?php echo $term->name; ?></p>
+		        		<div id="<?php echo $term->slug; ?>">
+		  					<p class="term-title"><?php echo $term->name; ?></p>
 
 		  				<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
 		  					<div class="col-sm-2">
@@ -46,17 +45,13 @@
 				<?php wp_reset_query(); ?>
 			</aside>
 <!-- /Mini menu -->
-
+    <div class="container">
 			<!-- post title -->
-			<section>
+				 <div class="row">
+					<h1><?php the_title(); ?></h1>
+					<p><?php the_excerpt(); ?></p>
+				</div>
 
-				<h1>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</h1>
-
-				<p><?php the_excerpt(); ?></p>
-
-			</section>
 			<!-- /post title -->
 
       <!-- Steps of the documentation -->
