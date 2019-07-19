@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
 
-<h1><?php echo single_cat_title(); ?></h1>
+  <div class="sub_header">
+    <h1 class="white_text"><?php echo single_cat_title(); ?></h1>
+    <input type="text" name="search" id="" value="Recherche">
+  </div>
 
+<div class="container">
 <?php
 
 
@@ -13,11 +17,17 @@ $args = array(
 'hide_empty' => false
 );
 $child_terms = get_terms( $this_term->taxonomy, $args );
-echo '<ul>';
+
+echo '<div class="row">';
+foreach ($child_terms as $term) {
+  echo '<div class="small_clickable col s4"><h3>' . $term->name . '</h3></div>';
+}
+echo '</div>';
+
 foreach ($child_terms as $term) {
 
 // List the child topic
-echo '<li><h3><a href="' . get_term_link( $term->name, $this_term->taxonomy ) . '">' . $term->name . '</a></h3>';
+echo '<h3>' . $term->name . '</h3>';
 
 // Get posts from that child topic
 $query = new WP_Query( array(
@@ -30,20 +40,24 @@ $query = new WP_Query( array(
    )
  )
 ) );
+?>
 
-// List the posts
-if($query->have_posts()) {
+<?php // List the posts ?>
+<div class="row">
+<?php if($query->have_posts()) {
      while($query->have_posts()) : $query->the_post(); ?>
-          <li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li><?php
-     endwhile;
-} else  { echo "no posts";}
+
+          <div class="small_clickable col s3"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></div>
+
+      <?php endwhile;
+} else  { echo "no posts";} ?>
+
+</div> 
 
 
-// close our <li>
-echo '</li>';
-} //end foreach
+<?php } //end foreach
  ?>
 
-
+</div>
 
 <?php get_footer(); ?>
