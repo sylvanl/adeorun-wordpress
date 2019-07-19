@@ -1,14 +1,14 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: color("adeorun", "black") !default;
+$primary-color: color("text", "black") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color("adeorun", "blue") !default;
-$success-color: color("green", "base") !default;
-$error-color: color("red", "base") !default;
-$link-color: color("light-blue", "darken-1") !default;
+$secondary-color: color("accent", "blue") !default;
+$success-color: color("button", "green") !default;
+$error-color: color("button", "red") !default;
+$link-color: color("text", "red") !default;
 
 
 // 2. Extends
