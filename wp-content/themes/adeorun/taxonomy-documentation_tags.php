@@ -27,7 +27,7 @@ echo '</div>';
 foreach ($child_terms as $term) {
 
 // List the child topic
-echo '<h3>' . $term->name . '</h3>';
+echo '<h3 id="<?php # . $term.slug ?>">' . $term->name . '</h3>';
 
 // Get posts from that child topic
 $query = new WP_Query( array(
