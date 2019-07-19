@@ -30,7 +30,7 @@ get_header(); ?>
                   if(get_sub_field('citation_membre_equipe'))
                   {
                   
-                    echo '<div class="overlay"><p>' . get_sub_field('citation_membre_equipe') . '</p></div>';
+                    echo '<div class="overlay"><p class="center-align">' . get_sub_field('citation_membre_equipe') . '</p></div>';
                   } ?>
                 </div>
                 
