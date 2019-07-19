@@ -9,3 +9,15 @@ $secondary-color: color("adeorun", "blue") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
+
+
+// 2. Extends
+// ==========================================================================
+ %clickable{
+     border: 1px solid $secondary-color ;
+     border-radius: 5px;
+     padding: 2%;
+     width: 48%;
+     margin: 2%
+ }
+

@@ -6,10 +6,10 @@
   <div class="container">
 
     <section>
-      <h1 class="test"><?php the_title(); ?></h1>
+      <h1><?php the_title(); ?></h1>
       <h2><?php the_content(); ?></h2>
 
-      <div class="row">
+      <div class="row valign-wrapper">
 
         <?php if( have_rows('type_organisateur') ): ?>
         <?php $type = 1; ?>
@@ -26,20 +26,20 @@
 
             <?php if($row_count > 4) : ?>
 
-          	  <div class='col s3'>
+          	  <div class='col s3 large-clickable'>
           	    <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-          	      <h4><?php echo $title; ?></h4>
-          	      <p><?php echo $description; ?></p>
+          	      <h3><?php echo $title; ?></h3>
+          	      <p class="subtitle"><?php echo $description; ?></p>
               </div>
 
             <?php else : ?>
 
-              <div>
+              <div class="large-clickable">
                 <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-                  <h4><?php echo $title; ?></h4>
-                  <p><?php echo $description; ?></p>
+                  <h3><?php echo $title; ?></h3>
+          	      <p class="subtitle"><?php echo $description; ?></p>
               </div>
 
             <?php endif; ?>
