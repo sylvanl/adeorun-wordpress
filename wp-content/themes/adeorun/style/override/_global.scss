@@ -1,28 +1,33 @@
 h1{
     font-size: 36px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Bold', sans-serif;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 h2{
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-family: 'Roboto Medium', sans-serif;
     text-align: center;
 }
 
 h3{
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 24px;
 }
 
 p{
-    font-family: 'PT Sans',
-    sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 17px;
 }
 
 .subtitle{
     color: color("adeorun", "gray");
     font-size: 18px;
     font-style: italic;
+}
+
+.sub_heading{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
 }

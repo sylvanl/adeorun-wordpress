@@ -26,7 +26,7 @@
 
             <?php if($row_count > 4) : ?>
 
-          	  <div class='col s3 large-clickable'>
+          	  <div class='col s3 large-clickable hoverable'>
           	    <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
           	      <h3><?php echo $title; ?></h3>
@@ -35,7 +35,7 @@
 
             <?php else : ?>
 
-              <div class="large-clickable">
+              <div class="large-clickable hoverable">
                 <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
                   <h3><?php echo $title; ?></h3>
