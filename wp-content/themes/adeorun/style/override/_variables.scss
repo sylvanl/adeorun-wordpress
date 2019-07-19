@@ -18,6 +18,15 @@ $link-color: color("light-blue", "darken-1") !default;
      border-radius: 5px;
      padding: 2%;
      width: 48%;
-     margin: 2%
+     margin: 2%;
+    box-sizing: border-box;
+    transition: border .1s ease-in;
+
+     &:hover {
+         border: 2px solid $secondary-color;
+         box-shadow: 0.5px 0.5px $secondary-color;
+     }
+
  }
+
 
