@@ -690,12 +690,6 @@ function evenement_tags_taxonomy() {
 add_action( 'init', 'evenement_tags_taxonomy', 0 );
 
 
-
-?>
-
-
-
-<?php
 // Test Gravity Form: Repeater field
 // Adjust your form ID
 add_filter( 'gform_form_post_get_meta_2', 'add_my_field' );

@@ -1,24 +1,19 @@
-.slide{
-  height: 100px;
-  width: 100px;
-  background-color: blue;
-}
-
-.main_block_search {
-  background-color: blue;
-}
-
 .home_block {
   margin: 0;
-  height: 100vh;
+  height: calc(100vh - 96px);
 }
 
-.home_block_search {
-  background-color: pink;
+.home_block_search.col {
+  padding: 0 200px 0 200px;
   height: 100%;
 }
 
-.home_block_side {
-  background-color: aqua;
+.home_block_side.col {
+  padding: 0 60px 0 60px;
+  background-color: color("accent", "blue");
   height: 100%;
+}
+
+.home_block_side_button {
+  margin-top: 40px;
 }

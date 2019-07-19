@@ -1,0 +1,51 @@
+// Raised Button
+.btn {
+    border-radius: 5px;
+    text-decoration: none;
+    color: $button-raised-color;
+    background-color: $button-raised-background;
+    text-align: center;
+    letter-spacing: .5px;
+    @extend .z-depth-0;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+    &:hover {
+      background-color: $button-raised-background-hover;
+      @extend .z-depth-1-half;
+    }
+}
+
+.btn.secondary {
+    color: color("button", "black");
+    background-color: color("button", "light-gray");
+    &:hover {
+        background-color: color("button", "light-gray-hover");
+    }
+}
+
+.btn.secondary {
+    color: color("button", "black");
+    background-color: color("button", "light-gray");
+    &:hover {
+        background-color: color("button", "light-gray-hover");
+    }
+}
+
+.btn.tertiary {
+    color: color("button", "black");
+    background-color: color("button", "light-gray");
+    &:hover {
+        background-color: color("button", "light-gray-hover");
+    }
+}
+
+.btn.light {
+    color: color("button", "white");
+    background-color: transparent;
+    border: 1px solid;
+    border-color: color("button", "white");
+    &:hover {
+        color: color("button", "black");
+        background-color: color("button", "white");
+    }
+}
