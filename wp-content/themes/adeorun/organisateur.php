@@ -6,7 +6,8 @@
   <div class="container">
 
     <section>
-      <h1><?php the_content(); ?></h1>
+      <h1 class="test"><?php the_title(); ?></h1>
+      <h2><?php the_content(); ?></h2>
 
       <div class="row">
 
