@@ -9061,4 +9061,19 @@ input[type=range]::-ms-thumb {
   weight: 100px;
   background-color: blue;
 }
+
+.home_block {
+  margin: 0;
+  height: 100vh;
+}
+
+.home_block_search {
+  background-color: pink;
+  height: 100%;
+}
+
+.home_block_side {
+  background-color: aqua;
+  height: 100%;
+}
 /*# sourceMappingURL=materialize.css.map */

@@ -78,12 +78,14 @@ class GF_Block_MailChimp extends GF_Block_MailingList {
 	 */
 	public function scripts() {
 
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
+
 		return array(
 			array(
 				'handle'   => $this->script_handle,
-				'src'      => gf_gutenberg()->get_base_url() . '/js/blocks/mailchimp.min.js',
+				'src'      => gf_gutenberg()->get_base_url() . "/js/mailchimp{$min}.js",
 				'deps'     => array( 'wp-blocks', 'wp-element', 'wp-date', 'wp-components', 'wp-i18n', 'wp-editor' ),
-				'version'  => filemtime( gf_gutenberg()->get_base_path() . '/js/blocks/mailchimp.min.js' ),
+				'version'  => $min ? gf_gutenberg()->get_version() : filemtime( gf_gutenberg()->get_base_path() . '/js/mailchimp.js' ),
 				'callback' => array( $this, 'localize_script' ),
 			),
 		);
@@ -137,9 +139,9 @@ class GF_Block_MailChimp extends GF_Block_MailingList {
 			),
 			array(
 				'handle'  => 'gform_editor_block_mailchimp',
-				'src'     => gf_gutenberg()->get_base_url() . '/css/blocks/mailchimp.min.css',
+				'src'     => gf_gutenberg()->get_base_url() . '/css/mailchimp.min.css',
 				'deps'    => array( 'gforms_formsmain_css' ),
-				'version' => filemtime( gf_gutenberg()->get_base_path() . '/css/blocks/mailchimp.min.css' ),
+				'version' => filemtime( gf_gutenberg()->get_base_path() . '/css/mailchimp.min.css' ),
 			),
 		);
 

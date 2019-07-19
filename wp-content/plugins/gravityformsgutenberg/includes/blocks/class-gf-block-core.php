@@ -86,12 +86,14 @@ class GF_Block_Core extends GF_Block {
 	 */
 	public function scripts() {
 
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
+
 		return array(
 			array(
 				'handle'   => $this->script_handle,
-				'src'      => gf_gutenberg()->get_base_url() . '/js/blocks/core.min.js',
+				'src'      => gf_gutenberg()->get_base_url() . "/js/core{$min}.js",
 				'deps'     => array( 'wp-blocks', 'wp-element', 'wp-date', 'wp-components', 'wp-i18n', 'wp-editor' ),
-				'version'  => filemtime( gf_gutenberg()->get_base_path() . '/js/blocks/core.min.js' ),
+				'version'  => $min ? gf_gutenberg()->get_version() : filemtime( gf_gutenberg()->get_base_path() . '/js/core.js' ),
 				'callback' => array( $this, 'localize_script' ),
 			),
 		);
@@ -110,27 +112,12 @@ class GF_Block_Core extends GF_Block {
 
 		wp_localize_script(
 			$script['handle'],
-			'gform',
+			'gform_block_core',
 			array(
-				'forms'              => gf_gutenberg()->get_forms(),
+				'forms'              => $this->get_forms(),
 				'conditionalOptions' => gf_gutenberg()->get_conditional_options(),
-				'icon'               => gf_gutenberg()->get_base_url() . '/images/blocks/core/icon.svg',
 			)
 		);
-
-		if ( function_exists( 'wp_get_jed_locale_data' ) ) {
-
-			// Get locale data.
-			$locale_data = wp_get_jed_locale_data( 'gravityforms' );
-
-			// Localize.
-			wp_add_inline_script(
-				$this->script_handle,
-				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "gravityforms" );',
-				'before'
-			);
-
-		}
 
 	}
 
@@ -150,9 +137,9 @@ class GF_Block_Core extends GF_Block {
 		return array(
 			array(
 				'handle'  => 'gform_editor_block_core',
-				'src'     => gf_gutenberg()->get_base_url() . '/css/block.css',
+				'src'     => gf_gutenberg()->get_base_url() . '/css/core.min.css',
 				'deps'    => array( 'wp-edit-blocks' ),
-				'version' => filemtime( gf_gutenberg()->get_base_path() . '/css/block.css' ),
+				'version' => filemtime( gf_gutenberg()->get_base_path() . '/css/core.min.css' ),
 			),
 		);
 
@@ -227,6 +214,45 @@ class GF_Block_Core extends GF_Block {
 		}
 
 		return sprintf( '[gravityforms id="%d" title="%s" description="%s" ajax="%s" tabindex="%d"]', $form_id, ( $title ? 'true' : 'false' ), ( $description ? 'true' : 'false' ), ( $ajax ? 'true' : 'false' ), $tabindex );
+
+	}
+
+
+
+
+
+	// # HELPER METHODS ------------------------------------------------------------------------------------------------
+
+	/**
+	 * Get list of forms for Block control.
+	 *
+	 * @since 2.4.10
+	 *
+	 * @return array
+	 */
+	public function get_forms() {
+
+		// Initialize forms array.
+		$forms = array();
+
+		// Load GFFormDisplay class.
+		if ( ! class_exists( 'GFFormDisplay' ) ) {
+			require_once GFCommon::get_base_path() . '/form_display.php';
+		}
+
+		// Get form objects.
+		$form_objects = GFAPI::get_forms();
+
+		// Loop through forms, add conditional logic check.
+		foreach ( $form_objects as $form ) {
+			$forms[] = array(
+				'id'                  => $form['id'],
+				'title'               => $form['title'],
+				'hasConditionalLogic' => GFFormDisplay::has_conditional_logic( $form ),
+			);
+		}
+
+		return $forms;
 
 	}
 
