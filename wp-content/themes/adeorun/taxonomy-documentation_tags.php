@@ -3,7 +3,7 @@
 
   <div class="sub_header">
     <h1 class="white_text"><?php echo single_cat_title(); ?></h1>
-    <input type="text" name="search" id="" value="Recherche">
+    <input type="text" placeholder="Recherche">
   </div>
 
 <div class="container">
