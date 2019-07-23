@@ -6,13 +6,15 @@
 
 	<!-- post title -->
 		<section>
-			<h1><?php echo $post_type->labels->name; ?></h1>
-		    <h2>
-		    	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		    </h2>
-
+		    <h1>
+		    	<?php the_title(); ?>
+		    </h1>
 		</section>
 	<!-- /post title -->
+		<section>
+			<p><?php the_excerpt(); ?></p>
+		</section>
+
 
     <!-- Dynamic content -->
 		<section>
