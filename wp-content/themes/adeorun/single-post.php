@@ -1,27 +1,27 @@
 <?php get_header(); ?>
 
 	<main role="main">
+
+
+						<!-- sidebar-->
+							<?php get_template_part('components/sidebar'); ?>
+						<!-- /sidebar-->
+
 		<div class="container">
 
 						<!-- post title -->
 						<section>
-							<h1>
-								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-							</h1>
-
+							<h1 class="left-align"><?php the_title(); ?></h1>
 							<p><?php the_excerpt(); ?></p>
-
 						</section>
 						<!-- /post title -->
 
 						<!-- post & author details -->
 						<section>
-
-							<?php get_template_part('components/author'); ?>
 							<div class="post_details">
-									<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></p>
+								<?php get_template_part('components/author-single'); ?>
+								<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></p>
 							</div>
-
 						</section>
 						<!-- /post & author details -->
 
@@ -37,12 +37,6 @@
 						</section>
 						<!-- /post thumbnail -->
 
-						<!-- sidebar-->
-						<section>
-							<?php get_template_part('components/sidebar'); ?>
-						</section>
-						<!-- /sidebar-->
-
 
 						<section>
 						 <?php the_content(); // Dynamic Content ?>
@@ -57,7 +51,7 @@
 
 						<!-- author of the post-->
 						<section>
-							<?php get_template_part('components/author'); ?>
+							<?php get_template_part('components/author-bio'); ?>
 						</section>
 
 

@@ -5,6 +5,11 @@
 <?php
   // vars
   $temoignage = get_field('temoignage');
+  if( have_rows('temoignage') ):
+    while( have_rows('temoignage') ) : the_row(); 
+      echo the_sub_field('titre');
+    endwhile;
+  endif;
   $bouton = get_field('bouton_formulaire');
   $fonctionnalites = get_field('fonctionnalites_adeorun');
   $evenement_titre = get_field('evenements_titre');
