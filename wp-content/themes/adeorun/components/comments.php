@@ -44,10 +44,10 @@ $args = array(
              '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> ' . '</label>' . '</p>' . '</div>' . '</div>'
         )
     ),
-    'comment_field' => '<p class="comment-form-comment">' .
+    'comment_field' => '<div class="input-field col s12">' .
         '<label for="comment">' . __( 'Votre commentaire:' ) . '</label>' .
-        '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>' .
-        '</p>',
+        '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true class="materialize-textarea"></textarea>' .
+        '</div>',
     'comment_notes_after' => '',
     'title_reply' => '<div class="crunchify-text"> <h5>Laisser un commentaire</h5></div>'
 );

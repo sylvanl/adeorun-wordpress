@@ -55,11 +55,11 @@
 			<!-- /post title -->
 
       <!-- Steps of the documentation -->
-			<section>
+
 
 	      <?php if( have_rows('etapes') ): ?>
 	      <?php $step = 1; ?>
-	      	<ul>
+
 	      	<?php while( have_rows('etapes') ): the_row();
 
 	      		// vars
@@ -69,21 +69,41 @@
 	      		$image = get_sub_field('image_de_letape');
 
 	      		?>
+					
+					<?php if($step % 2 != 0) :  ?>
+					<div class="row">
+						<div class="col s7">
+							<h4><?php echo $name; ?></h4>
+							<p><?php echo $content; ?></p>
+						</div>
 
-	      		<li>
-	              <?php echo $step;
-	                    $step += 1;
-	              ?>
-	      				<h4><?php echo $name; ?></h4>
-	              		<p><?php echo $content; ?></p>
-	      				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-	      		</li>
+						<div class="col s5">
+	      					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+				 		</div>
+					</div>
+					<div class="divider"></div>
+
+					<?php else : ?>
+					<div class="row">
+						<div class="col s7">
+	      					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+				 		</div>
+						<div class="col s5">
+							<h4><?php echo $name; ?></h4>
+							<p><?php echo $content; ?></p>
+						</div>
+
+
+					</div>
+					<div class="divider"></div>
+
+				<?php endif; ?>
+	        <?php $step += 1; ?>
 	      	<?php endwhile; ?>
-	      	</ul>
+
 
 	      <?php endif; ?>
 
-			</section>
       <!-- /Steps of the documentation -->
 
       <!-- Dynamic content -->

@@ -444,7 +444,8 @@ function create_post_type_html5()
             'title',
             'editor',
             'excerpt',
-            'thumbnail'
+            'thumbnail',
+            'comments'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export' => true // Allows export in Tools > Export
     ));
