@@ -18,5 +18,5 @@ medias
 /sitemap.xml
 /sitemap.xml.gz
 wp-content/themes/adeorun/.vscode/settings.json
-wp-content/themes/adeorun/style/materialize.css
-wp-content/themes/adeorun/style/materialize.css.map
+# wp-content/themes/adeorun/style/materialize.css
+# wp-content/themes/adeorun/style/materialize.css.map
