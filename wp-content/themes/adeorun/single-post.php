@@ -20,7 +20,6 @@
 						<section>
 							<div class="post_details">
 								<?php get_template_part('components/author-single'); ?>
-								<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></p>
 							</div>
 						</section>
 						<!-- /post & author details -->
@@ -39,8 +38,8 @@
 
 
 						<section>
-						 <?php the_content(); // Dynamic Content ?>
-					 </section>
+						 	<?php the_content(); // Dynamic Content ?>
+					 	</section>
 
 						<!-- tags & categories-->
 						<section>
@@ -54,6 +53,7 @@
 							<?php get_template_part('components/author-bio'); ?>
 						</section>
 
+						<div class="divider"></div>
 
 						<!-- comments of the post-->
 						<section>

@@ -3,6 +3,7 @@
 
 	<p><?php the_field('description', 'options'); ?></p>
 	<a class="waves-effect waves-light btn" href='<?php the_field('button-url', 'options') ?>'><?php the_field('button-text', 'options') ?></a>
+	<div class="divider"></div>
 
 	<!-- Facebook share button -->
 	<div class="share_buttons">
