@@ -51,12 +51,14 @@ button{
     color: color('text', 'white');
 }
 
-aside{
+aside {
     position: absolute;
     width: 13%;
     margin: 1%;
+    top: 55%;
 }
 
 ::placeholder{
     color: white;
 }
+
