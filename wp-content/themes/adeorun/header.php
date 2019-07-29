@@ -41,7 +41,7 @@
 
 						<!-- Recherche d'évenemnts -->
 						<div class="input-field col s2 red-text">
-							<input type="text" placeholder="Recher un évennement" id="autocomplete-input" class="autocomplete red-text" >
+							<input type="text" placeholder="Rechercher un évenement" id="autocomplete-input" class="autocomplete red-text" >
 						</div>
 						<!-- /Recherche d'évenemnts -->
 

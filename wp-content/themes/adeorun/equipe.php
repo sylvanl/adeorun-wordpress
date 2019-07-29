@@ -4,20 +4,25 @@ get_header(); ?>
 	<main role="main">
     <div class="container">
 
-      <section>
-        <h1><?php the_title(); ?></h1>
+        <div class="section">
+          <h1><?php the_title(); ?></h1>
+          <?php if(get_field('sous_titre_equipe')) {
+            echo '<h2>' . get_field('sous_titre_equipe') . '</h2>';
+          } ?>
+        </div>
 
-        <?php if(get_field('sous_titre_equipe'))
-        {
-          echo '<h2>' . get_field('sous_titre_equipe') . '</h2>';
-        }
-        if(get_field('presentation_equipe'))
-        {
-          echo '<p>' . get_field('presentation_equipe') . '</p>';
-        }
+        <div class="section">
+          <?php 
+            if(get_field('presentation_equipe'))
+            {
+              echo '<p>' . get_field('presentation_equipe') . '</p>';
+            }
+          ?>
+        </div>
 
-        if( have_rows('membres_equipe') ): ?>
+        <?php if( have_rows('membres_equipe') ): ?>
   
+        <div class="section">
           <div class="row">
             <?php while( have_rows('membres_equipe') ): the_row(); ?>
 
@@ -29,7 +34,6 @@ get_header(); ?>
                   <?php endif;
                   if(get_sub_field('citation_membre_equipe'))
                   {
-                  
                     echo '<div class="overlay"><p class="center-align">' . get_sub_field('citation_membre_equipe') . '</p></div>';
                   } ?>
                 </div>
@@ -65,31 +69,34 @@ get_header(); ?>
                     </button>
                   <?php endif; ?>
                 </div>
+                <div>
+                  <p class="center-align"><?php echo get_sub_field('telephone_membre_equipe'); ?></p>
+                </div>
               </div>
                 
             <?php endwhile; ?>
           </div>
-        
+        </div>
         <?php endif; ?>
-      </section>
+
       
-      <section>
-        <?php if(get_field('titre_recrutement'))
-        {
+      <div class="section">
+        <?php if(get_field('titre_recrutement')) {
           echo '<h1>' . get_field('titre_recrutement') . '</h1>';
         }
-        if(get_field('description_recrutement'))
-        {
+        if(get_field('description_recrutement')){
           echo '<p>' . get_field('description_recrutement') . '</p>';
         }
-        if(get_sub_field('lien_recrutement')): ?>
-          <button type="button" url="<?php get_sub_field('lien_recrutement') ?>">
-            <?php get_sub_field('texte_bouton_recrutement') ?>
-          </button>
+        if(get_field('lien_recrutement')): ?>
+        <div class="center-align">
+            <a class="waves-effect waves-light btn" href="<?php get_field('lien_recrutement') ?>">
+              <?php echo get_field('texte_bouton_recrutement') ?>
+            </a>
+        </div>
         <?php endif; ?>
-      </section>
+      </div>
       
-      <section>
+      <div class="section">
         <?php if(get_field('titre_locaux'))
         {
           echo '<h1>' . get_field('titre_locaux') . '</h1>';
@@ -107,25 +114,25 @@ get_header(); ?>
             <?php endforeach; ?>
           </div>        
         <?php endif; ?>
-      </section>
+      </div>
 
-      <section>
+      <div class="section">
         <?php if(get_field('titre_adresse'))
         {
           echo '<h1>' . get_field('titre_adresse') . '</h1>';
         }
         if(get_field('description_adresse'))
         {
-          echo '<p>' . get_field('description_adresse') . '</p>';
+          echo '<p class="center-align">' . get_field('description_adresse') . '</p>';
         } ?>
 
         <!-- Ajouter la carte ici !!! -->
 
-      </section>
+      </div>
 
-      <section>
+      <div class="section">
         <?php the_content(); ?>
-      </section>
+      </div>
 
     </div>
 	</main>

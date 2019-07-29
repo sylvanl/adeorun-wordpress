@@ -9381,6 +9381,10 @@ aside {
   color: white;
 }
 
+#header {
+  background-color: white;
+}
+
 .team_image {
   position: relative;
   display: inline-block;
