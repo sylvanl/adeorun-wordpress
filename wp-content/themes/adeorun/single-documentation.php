@@ -4,45 +4,44 @@
 
 <!-- Mini menu -->
 			<aside class="documentation_tags">
-				<?php
-					$taxonomy = 'documentation_tags';
+			<!-- begin custom related loop, isa -->
+ 
+<?php 
+ 
+	// get the custom post type's taxonomy terms
+	$custom_taxterms = wp_get_object_terms( $post->ID, 'documentation_tags', array('fields' => 'ids') );
+	// arguments
+	$args = array(
+		'post_type' => 'documentation',
+		'post_status' => 'publish',
+		'posts_per_page' => -1, // you may edit this number
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'documentation_tags',
+				'field' => 'id',
+				'terms' => $custom_taxterms
+			)
+		),
+		'post__not_in' => array ($post->ID),
+		);
 
-					$term_args = array(
-					 'orderby' => 'name',
-					 'order' => 'ASC'
-					 );
-
-					$terms = get_terms($taxonomy,$term_args);?>
-
-		    <?php if ($terms) { foreach($terms as $term) {
-
-					$args = array(
-					'post_type' => 'Documentation',
-					'tax_query' => array(
-					array(
-						'taxonomy' => 'documentation_tags',
-						'terms' => array($term->term_id),
-						'include_children' => true,
-						'operator' => 'IN'
-						)
-					)
-				);
-		    $my_query = new WP_Query($args); if ($my_query->have_posts()) { ?>
-					<div class="row">
-		        		<div id="<?php echo $term->slug; ?>">
-		  					<p class="term-title"><?php echo $term->name; ?></p>
-
-		  				<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-		  					<div class="col-sm-2">
-		  						<p><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to ', 'textdomain'); ?><?php the_title_attribute(); ?>"><?php the_title(); ?></a></p>
-		  					</div>
-		  				<?php endwhile; ?>
-					</div>
-		    </div>
-
-				<?php }
-				 } } ?>
-				<?php wp_reset_query(); ?>
+$related_items = new WP_Query( $args );
+// loop over query
+if ($related_items->have_posts()) :
+	echo '<ul>';
+		while ( $related_items->have_posts() ) : $related_items->the_post();
+		?>
+    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+<?php
+endwhile;
+echo '</ul>';
+endif;
+// Reset Post Data
+wp_reset_postdata();
+?>
+ 
+ 
+<!-- end custom related loop, isa -->
 			</aside>
 <!-- /Mini menu -->
     <div class="container">
