@@ -45,7 +45,7 @@
 			<!-- post title -->
 			<div class="section">
 				<h1><?php the_title(); ?></h1>
-				<p><?php the_excerpt(); ?></p>
+				<p class="sub_heading center-align"><?php the_excerpt(); ?></p>
 			</div>
 
 			<!-- /post title -->

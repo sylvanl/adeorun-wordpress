@@ -7,13 +7,13 @@
 								<?php get_template_part('components/sidebar'); ?>
 							</div>	
 						<!-- /sidebar-->
-						
+
 		<div class="container">
 
 						<!-- post title -->
 						<div class="section">
 							<h1 class="left-align"><?php the_title(); ?></h1>
-							<p><?php the_excerpt(); ?></p>
+							<p ><?php the_excerpt(); ?></p>
 						</div>
 						<!-- /post title -->
 

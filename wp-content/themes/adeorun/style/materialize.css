@@ -9380,8 +9380,8 @@ aside {
   color: white;
 }
 
-#header {
-  background-color: white;
+main {
+  min-height: 65vh;
 }
 
 .team_image {
