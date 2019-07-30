@@ -87,8 +87,8 @@
     </div>
 
     <script>
-        $(document).ready(function(){
-            $('.tabs').tabs();
+        jQuery(document).ready(function(){
+            jQuery('.tabs').tabs();
         });
     </script>
 
