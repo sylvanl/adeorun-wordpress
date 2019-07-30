@@ -3,11 +3,12 @@
 
 		<div class="container">
 
-			<section>
+			<div class="section">
 				<h1><?php the_title(); ?></h1>
 				<p class="sub_heading center-align"><?php the_excerpt(); ?></p>
+			</div>
 
-				<div class="row">
+			<div class="row">
 				<?php $query = new WP_Query(array(
 					'post_type' => 'Outil',
 					'post_status' => 'publish'
@@ -34,9 +35,6 @@
 
 				wp_reset_query(); ?>
 				</div>
-			</section>
-
-
 
 		</div><!-- #container -->
 
