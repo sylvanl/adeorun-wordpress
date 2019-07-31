@@ -35,7 +35,7 @@
 				<?php $texte_lien_mentions_legales = get_field('texte_lien_mentions_legales', 'options');
 				$lien_mentions_legales = get_field('lien_mentions_legales', 'options');
 				if( !empty($texte_lien_mentions_legales) && !empty($lien_mentions_legales) ): ?>
-					<p class="right caption-text"><a href="<?php echo $lien_mentions_legales ?>"><?php echo $texte_lien_mentions_legales ?>s</a></p>
+					<p class="right caption-text"><a href="<?php echo $lien_mentions_legales ?>"><?php echo $texte_lien_mentions_legales ?></a></p>
 				<?php endif; ?>
 			</div>
 			<!-- /copyright et mentions légales -->

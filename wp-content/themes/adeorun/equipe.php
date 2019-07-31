@@ -130,9 +130,6 @@ get_header(); ?>
 
       </div>
 
-      <div class="section">
-        <?php the_content(); ?>
-      </div>
 
     </div>
 	</main>
