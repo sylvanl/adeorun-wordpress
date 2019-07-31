@@ -58,6 +58,10 @@ button{
     color: color('text', 'white');
 }
 
+.black-text{
+    color: $off-black;
+}
+
 aside {
     position: absolute;
     width: 13%;
@@ -74,5 +78,9 @@ main{
 
 a:hover{
     text-decoration: underline;
+}
+
+.menu-item > a{
+    color: $off-black;
 }
 
