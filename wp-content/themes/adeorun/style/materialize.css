@@ -9315,7 +9315,6 @@ h1 {
   font-size: 36px;
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  margin-top: 7%;
   font-weight: bold;
 }
 
@@ -9381,6 +9380,10 @@ aside {
 
 main {
   min-height: 65vh;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .team_image {
@@ -9621,6 +9624,12 @@ nav .input-field label.active i {
 
 .main-nav {
   margin-right: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .main-nav ul li:hover > ul {
@@ -9641,6 +9650,7 @@ nav .input-field label.active i {
 
 .main-nav li {
   position: relative;
+  margin: auto;
 }
 
 .main-nav ul ul li {

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-  <div class="sub_header">
+  <div class="sub_header section">
     <h1 class="white_text"><?php echo single_cat_title(); ?></h1>
     <input type="text" placeholder="Recherche" class="light-placeholder small-placeholder">
   </div>
@@ -27,7 +27,7 @@ echo '</div></div>';
 foreach ($child_terms as $term) {
 
 // List the child topic
-echo '<div class="section"></div><h2 id="<?php # . $term.slug ?>" class="left-align">' . $term->name . '</h2>';
+echo '<div class="section"><h2 id="<?php # . $term->slug ?>" class="left-align">' . $term->name . '</h2>';
 
 // Get posts from that child topic
 $query = new WP_Query( array(
@@ -51,10 +51,8 @@ $query = new WP_Query( array(
 
         <?php endwhile;
   } else  { echo "no posts";} ?>
-
-  </div> 
+  </div>
 </div>
-
 
 <?php } //end foreach
  ?>

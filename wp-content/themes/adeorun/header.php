@@ -48,6 +48,10 @@
 							<?php html5blank_nav(); ?>
 						</div>
 
+						<div class="create_event col s1">
+							<a class="waves-effect waves-light btn">button</a>
+						</div>
+
 					</div>
 				</nav>
 				<!-- /nav -->
