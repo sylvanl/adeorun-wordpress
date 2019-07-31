@@ -1,5 +1,6 @@
 		<!-- footer -->
 		<footer class="page-footer">
+			<div class="divider"></div>			
 			<div class="container">
 				<div class="row">
 					<div class="col s3">
@@ -16,25 +17,27 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="divider"></div>
 
 			<!-- copyright et mentions légales -->
-			<p class="footer-copyright container">
+			<div class="footer-copyright container">
 				<?php $texte_lien_copyright = get_field('texte_lien_copyright', 'options');
 				$lien_copyright = get_field('lien_copyright', 'options');
 				if( !empty($lien_copyright) && !empty($texte_lien_copyright) ): ?>
-					<a class="grey-text text-lighten-4" href="#!"><?php echo $texte_lien_copyright; ?></a>
-				<?php elseif( !empty($texte_lien_copyright) ):
-					echo $texte_lien_copyright;
-				else : ?>
-					© <?php bloginfo('name'); ?> <?php echo date('Y'); ?>
+					<p class="caption-text"><a href="#!"><?php echo $texte_lien_copyright; ?></a></p>
+				<?php elseif( !empty($texte_lien_copyright) ): ?>
+					<p class="caption-text"><?php echo $texte_lien_copyright; ?></p>
+				<?php else : ?>
+					<p class="caption-text">© <?php bloginfo('name'); ?> <?php echo date('Y'); ?></p>
 				<?php endif; ?>
 
 				<?php $texte_lien_mentions_legales = get_field('texte_lien_mentions_legales', 'options');
 				$lien_mentions_legales = get_field('lien_mentions_legales', 'options');
 				if( !empty($texte_lien_mentions_legales) && !empty($lien_mentions_legales) ): ?>
-					<a class="grey-text text-lighten-4 right" href="<?php echo $lien_mentions_legales ?>"><?php echo $texte_lien_mentions_legales ?>s</a>	
+					<p class="right caption-text"><a href="<?php echo $lien_mentions_legales ?>"><?php echo $texte_lien_mentions_legales ?>s</a></p>
 				<?php endif; ?>
-			</p>
+			</div>
 			<!-- /copyright et mentions légales -->
 
 		</footer>
@@ -47,7 +50,7 @@
 				
 	<!-- Javascript -->
 	
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
 	<!-- analytics -->

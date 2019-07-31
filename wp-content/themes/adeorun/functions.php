@@ -72,10 +72,9 @@ function html5blank_nav()
 	array(
 		'theme_location'  => 'header-menu',
 		'menu'            => '',
-		'container'       => 'div',
-		'container_class' => 'menu-{menu slug}-container',
+		'container_class' => 'main-nav',
 		'container_id'    => '',
-		'menu_class'      => 'menu',
+		'menu_class'      => 'menu-nav',
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
@@ -769,4 +768,33 @@ function remove_my_field( $form_meta, $form_id, $meta_name ) {
     }
 
     return $form_meta;
+}
+?>
+
+<?php 
+// Display Icons for menu items via ACF
+add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+function my_wp_nav_menu_objects( $items, $args ) {
+	
+	// loop
+	foreach( $items as &$item ) {
+		
+		// vars
+		$icon = get_field('icon', $item);
+		
+		
+		// append icon
+		if( $icon ) {
+			
+			$item->title .= '<img src="' . $icon . '">';
+			
+		}
+		
+	}
+	
+	
+	// return
+	return $items;
+	
 }

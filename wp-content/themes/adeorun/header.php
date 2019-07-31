@@ -40,14 +40,14 @@
 						<!-- /logo -->
 
 						<!-- Recherche d'évenemnts -->
-						<div class="input-field col s2 red-text">
+						<div class="input-field col s3 red-text">
 							<input type="text" placeholder="Rechercher un évenement" id="autocomplete-input" class="autocomplete red-text" >
 						</div>
 						<!-- /Recherche d'évenemnts -->
-
-						<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<div class="main-nav right">
 							<?php html5blank_nav(); ?>
-						</ul>
+						</div>
+
 					</div>
 				</nav>
 				<!-- /nav -->

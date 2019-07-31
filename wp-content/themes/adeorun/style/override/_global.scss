@@ -22,11 +22,19 @@ p{
     font-size: 17px;
 }
 
+.caption-text{
+    font-family: 'PT Sans',
+    sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
 button{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
+
 
 .subtitle{
     color: color("adeorun", "gray");
@@ -57,8 +65,8 @@ aside {
     margin: 1%;
 }
 
-::placeholder{
-    color: white;
+.light-placeholder{
+    color: $primary-color;
 }
 
 main{
