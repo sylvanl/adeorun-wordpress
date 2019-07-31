@@ -44,13 +44,15 @@
 							<input type="text" placeholder="Rechercher un évenement" id="autocomplete-input" class="autocomplete red-text" >
 						</div>
 						<!-- /Recherche d'évenemnts -->
-						<div class="main-nav right">
+					<div class="right col s5">
+						<div class="main-nav">
 							<?php html5blank_nav(); ?>
 						</div>
 
-						<div class="create_event col s1">
-							<a class="waves-effect waves-light btn">button</a>
+						<div class="create_event">
+							<a class="waves-effect waves-light btn">Créer un événement</a>
 						</div>
+					</div>
 
 					</div>
 				</nav>

@@ -22,7 +22,8 @@ echo '<div class="section"><div class="row">';
 foreach ($child_terms as $term) {
   echo '<div class="small_clickable col s4"><p>' . $term->name . '</p></div>';
 }
-echo '</div></div>';
+echo '</div></div>
+<div class="divider"></div>';
 
 foreach ($child_terms as $term) {
 
@@ -53,7 +54,7 @@ $query = new WP_Query( array(
   } else  { echo "no posts";} ?>
   </div>
 </div>
-
+<div class="divider"></div>
 <?php } //end foreach
  ?>
 
