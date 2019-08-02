@@ -1,3 +1,7 @@
+main {
+    min-height: 65vh;
+}
+
 h1{
     font-size: 36px;
     font-family: 'Roboto', sans-serif;
@@ -19,6 +23,12 @@ h3{
 p{
     font-family: 'PT Sans', sans-serif;
     font-size: 17px;
+}
+
+.second-title{
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: $off-black;
 }
 
 .caption-text{
@@ -62,19 +72,20 @@ button{
     color: $off-black;
 }
 
-aside {
-    position: absolute;
-    width: 13%;
-    margin: 1%;
+.grey-text{
+    color: ("text", "grey")
+}
+
+.sticky{
+    position: sticky;
+    top: 10%;
 }
 
 .light-placeholder{
     color: $primary-color;
 }
 
-main{
-    min-height: 65vh;
-}
+
 
 a:hover{
     text-decoration: underline;
@@ -83,4 +94,6 @@ a:hover{
 .menu-item > a{
     color: $off-black;
 }
+
+
 

@@ -25,6 +25,10 @@ $input: (
   "gray":  #949494
 );
 
+$social: (
+  "grey": #D1D1D1
+);
+
 $button: (
   "black": #070707,
   "blue":  #183953,
@@ -374,6 +378,7 @@ $shades: (
 
 $colors: (
   "logo": $logo,
+  "social": $social,
   "text": $text,
   "accent": $accent,
   "input": $input,

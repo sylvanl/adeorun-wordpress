@@ -1,0 +1,20 @@
+span>a {
+    color: $off-black;
+}
+
+.social-icon {
+    color: color("social", "grey");
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.author_name>a {
+    color: $off-black;
+}
+
+.col.s2.sidebar_article{
+    padding: 0 2% 0 0;
+}

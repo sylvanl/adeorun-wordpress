@@ -2,25 +2,23 @@
 
 	<main role="main">
 
-						<!-- sidebar-->
-							<div class="sidebar_article">
-								<?php get_template_part('components/sidebar'); ?>
-							</div>	
-						<!-- /sidebar-->
-
 		<div class="container">
 
 						<!-- post title -->
-						<div class="section">
-							<h1 class="left-align"><?php the_title(); ?></h1>
-							<p ><?php the_excerpt(); ?></p>
+
+						<div class="row">
+							<div class="col s8 offset-s2">
+								<h1 class="left-align"><?php the_title(); ?></h1>
+								<p ><?php the_excerpt(); ?></p>
+								<div class="post_details">
+									<?php get_template_part('components/author-single'); ?>
+								</div>
+							</div>
 						</div>
 						<!-- /post title -->
 
 						<!-- post & author details -->
-							<div class="post_details section">
-								<?php get_template_part('components/author-single'); ?>
-							</div>
+
 						<!-- /post & author details -->
 
 						<!-- post thumbnail -->
@@ -33,30 +31,44 @@
 						</div>
 						<!-- /post thumbnail -->
 
+						<div class="row section">
 
-						<div class="article_content section">
-						 	<?php the_content(); // Dynamic Content ?>
-					 	</div>
+						<!-- sidebar-->
+							<div class="sidebar_article col s2 sticky">
+								<?php get_template_part('components/sidebar'); ?>
+							</div>	
+						<!-- /sidebar-->
+
+							<div class="article_content col s8">
+								<?php the_content(); // Dynamic Content ?>
+
+								<div class="section">
+									<?php get_template_part('components/author-bio'); ?>
+								</div>
+							</div>
+						 </div>
 
 
 
 						<!-- author of the post-->
-						<div class="section">
-							<?php get_template_part('components/author-bio'); ?>
-						</div>
 
-						<div class="divider"></div>
+						<div class="row">
+							<div class="col s8 offset-s2">
+								<div class="divider"></div>
 
 						<!-- comments of the post-->
-						<div class="section">
-							<?php get_template_part('components/comments'); ?>
-						</div>
+
+							<div class="section">
+								<?php get_template_part('components/comments'); ?>
+							</div>
+						
 						
 
 						<div class="divider"></div>
 
 
 			<!-- Show 3 lastest posts -->
+
 						<div class="section">
 
 							<h3>A découvrir également</h3>
@@ -77,17 +89,20 @@
 
 										</div>
 										<div class="card-content">
-											<p><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?> </a></p>
-											<p class="author_name"><?php the_author_posts_link(); ?></p>
-											<p class="date"><?php the_time('F j, Y'); ?></p>
+											<p><a class="second-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?> </a></p>
+
+											<div class="section">
+												<p class="author_name caption-text"><?php the_author_posts_link(); ?></p>
+												<p class="date caption-text grey-text"><?php the_time('F j, Y'); ?></p>
+											</div>
 										</div>
 									</div>
 								</div>
 								<?php endforeach; ?>
 							</div>
-
-						</section>
-
+						 </div> 
+				<!-- /Show 3 lastest posts -->
+					</div>
 
 		</div>
 	</main>
