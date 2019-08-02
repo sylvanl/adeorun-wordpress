@@ -8,7 +8,8 @@
 			<article id="post-404">
 
 				<div class="container">
-					<img src="<?php the_field('404_image', 'option'); ?>">
+					<?php $image = get_field('404_image', 'option'); ?>
+					<img src="<?php echo $image["url"]; ?>">
 					<h1><?php the_field('404_title', 'option'); ?></h1>
 					<p class="sub_heading center-align"><?php the_field('404_text', 'option'); ?></p>
 
