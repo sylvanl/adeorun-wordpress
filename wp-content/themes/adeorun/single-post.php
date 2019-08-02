@@ -5,12 +5,13 @@
 		<div class="container">
 
 						<!-- post title -->
-
 						<div class="row">
 							<div class="col s8 offset-s2">
-								<h1 class="left-align"><?php the_title(); ?></h1>
-								<p ><?php the_excerpt(); ?></p>
-								<div class="post_details">
+								<div class="section">
+									<h1 class="left-align"><?php the_title(); ?></h1>
+									<p class="grey-text"><?php the_excerpt(); ?></p>
+								</div>
+								<div class="post_details section">
 									<?php get_template_part('components/author-single'); ?>
 								</div>
 							</div>

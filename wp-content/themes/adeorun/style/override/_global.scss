@@ -1,5 +1,5 @@
 main {
-    min-height: 65vh;
+    min-height: calc(100vh - 96px);
 }
 
 h1{
@@ -29,6 +29,12 @@ p{
     font-family: 'Roboto';
     font-size: 16px;
     color: $off-black;
+}
+
+.orga-title{
+        font-family: 'Roboto';
+        font-size: 20px;
+        color: $off-black;
 }
 
 .caption-text{

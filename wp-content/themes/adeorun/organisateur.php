@@ -29,8 +29,8 @@
           	  <div class='col s3 large-clickable hoverable'>
           	    <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-          	      <h3><?php echo $title; ?></h3>
-          	      <p class="subtitle"><?php echo $description; ?></p>
+          	      <p class="orga-title"><?php echo $title; ?></h3>
+          	      <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
               </div>
 
             <?php else : ?>
@@ -38,8 +38,8 @@
               <div class="large-clickable hoverable">
                 <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-                  <h3><?php echo $title; ?></h3>
-          	      <p class="subtitle"><?php echo $description; ?></p>
+                  <p class="orga-title"><?php echo $title; ?></p>
+          	      <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
               </div>
 
             <?php endif; ?>
