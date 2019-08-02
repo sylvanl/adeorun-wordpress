@@ -21,7 +21,7 @@
 <div class="section">
   <div class="row">
     <?php foreach ($child_terms as $term) : ?>
-    <div class="small_clickable col s4">
+    <div class="small_clickable col s3">
       <?php $image = get_field('taxo-image', $term); ?>
       <img src="<?php echo $image['url']; ?>">
       <p><?php echo $term->name; ?><i class="far fa-arrow-right right black-text"></i></p>
