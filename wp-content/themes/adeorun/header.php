@@ -29,7 +29,7 @@
 				<nav>
 					<div class="nav-wrapper row">
 						<!-- logo -->
-						<div class="col s2">
+						<div class="col">
 							<a href="<?php echo home_url(); ?>" class="brand-logo">
 								<?php $logo = get_field('logo', 'options');
 								if( !empty($logo) ): ?>
@@ -40,19 +40,19 @@
 						<!-- /logo -->
 
 						<!-- Recherche d'évenemnts -->
-						<div class="input-field col s3 red-text">
+						<div class="input-field col s2 red-text">
 							<input type="text" placeholder="Rechercher un évenement" id="autocomplete-input" class="autocomplete red-text" >
 						</div>
 						<!-- /Recherche d'évenemnts -->
-					<div class="right col s5">
-						<div class="main-nav">
-							<?php html5blank_nav(); ?>
-						</div>
+						<div class="right col">
+							<div class="main-nav col">
+								<?php html5blank_nav(); ?>
+							</div>
 
-						<div class="create_event">
-							<a class="waves-effect waves-light btn">Créer un événement</a>
+							<div class="create_event col">
+								<a class="waves-effect waves-light btn">Créer un événement</a>
+							</div>
 						</div>
-					</div>
 
 					</div>
 				</nav>
