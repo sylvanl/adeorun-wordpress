@@ -8,11 +8,13 @@
 			<article id="post-404">
 
 				<div class="container">
-					<h1>404 - Page introuvable</h1>
-					<p class="sub_heading center-align">Il semblerait que la page que vous demandez n'est pas disponible</p>
+					<?php $image = get_field('404_image', 'option'); ?>
+					<img src="<?php echo $image["url"]; ?>">
+					<h1><?php the_field('404_title', 'option'); ?></h1>
+					<p class="sub_heading center-align"><?php the_field('404_text', 'option'); ?></p>
 
-					<div style="text-align: center;">
-						<a class="waves-effect waves-light btn" href="<?php echo home_url(); ?>">Retour à l'accueil</a>
+					<div class="center-align">
+						<a class="waves-effect waves-light btn" href="<?php echo home_url(); ?>"><?php the_field('404_button', 'option'); ?></a>
 					</div>
 				</div>
 			</article>

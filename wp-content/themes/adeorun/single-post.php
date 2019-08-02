@@ -23,12 +23,14 @@
 						<!-- /post & author details -->
 
 						<!-- post thumbnail -->
-						<div class="section">
+						<div class=" row section">
+							<div class="col s12 center-align thumbnail">
 							<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 								</a>
 							<?php endif; ?>
+							</div>
 						</div>
 						<!-- /post thumbnail -->
 
