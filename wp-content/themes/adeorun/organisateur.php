@@ -12,7 +12,6 @@
       <div class="row valign-wrapper">
 
         <?php if( have_rows('type_organisateur') ): ?>
-        <?php $type = 1; ?>
         <?php $row_count = count(get_field('type_organisateur')); ?>
 
         <?php while( have_rows('type_organisateur') ): the_row();
@@ -27,7 +26,6 @@
             <?php if($row_count > 4) : ?>
 
           	  <div class='col s3 large-clickable hoverable'>
-          	    <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
           	      <p class="orga-title"><?php echo $title; ?></h3>
           	      <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
@@ -36,7 +34,6 @@
             <?php else : ?>
 
               <div class="large-clickable hoverable">
-                <?php $type += 1; ?>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
                   <p class="orga-title"><?php echo $title; ?></p>
           	      <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
