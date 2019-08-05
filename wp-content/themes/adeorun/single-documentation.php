@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 	<main role="main">
+	  <?php get_template_part('components/upbar'); ?>
 
 <!-- Mini menu -->
 	<aside class="documentation_tags">

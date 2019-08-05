@@ -87,6 +87,10 @@ button{
     top: 10%;
 }
 
+.no-underline:hover{
+    text-decoration: none;
+}
+
 .light-placeholder{
     color: $primary-color;
 }

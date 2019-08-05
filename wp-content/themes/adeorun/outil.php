@@ -20,7 +20,7 @@
 					$post_id = get_the_ID(); ?>
 
 				<div class="col s3 small_clickable">
-					<a class="black-text" href="<?php the_permalink(); ?>">
+					<a class="black-text no-underline" href="<?php the_permalink(); ?>">
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<?php if ( has_post_thumbnail() ) :
 								the_post_thumbnail();

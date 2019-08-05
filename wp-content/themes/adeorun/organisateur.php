@@ -27,7 +27,7 @@
 
           	  <div class='col s3 large-clickable hoverable'>
                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-          	      <p class="orga-title"><?php echo $title; ?></h3>
+          	      <p class="orga-title"><?php echo $title; ?></p>
           	      <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
               </div>
 

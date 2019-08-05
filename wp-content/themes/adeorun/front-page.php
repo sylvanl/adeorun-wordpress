@@ -11,7 +11,7 @@
 <?php $fields = get_fields(); extract( $fields ); ?>
 
 <main role="main">
-
+  
   <!-- Thumbmail Page d'accueil -->
   <div class="home_block row">
 
