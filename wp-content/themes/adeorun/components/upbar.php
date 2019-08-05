@@ -14,11 +14,13 @@
         <p class="white-text"><?php echo $telephone; ?></p>
     </div>
 
-    <div class="col">
-        <p class="white-text"><?php echo $description; ?></p>
-    </div>
-    
-    <div class="col">
-        <button class="home_block_side_button btn light btn-large waves-effect waves-light" href="<?php echo $contact_button_link; ?>"><?php echo $contact_button_text; ?></button>
+    <div class="right col">
+        <div class="col">
+            <p class="white-text"><?php echo $description; ?></p>
+        </div>
+        
+        <div class="col">
+            <button class="home_block_side_button btn light btn-large waves-effect waves-light" href="<?php echo $contact_button_link; ?>"><?php echo $contact_button_text; ?></button>
+        </div>
     </div>
 </div>
