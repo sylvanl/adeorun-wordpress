@@ -9,7 +9,7 @@
       <h1><?php the_title(); ?></h1>
       <p><?php the_content(); ?></p>
 
-      <div class="row valign-wrapper">
+      <div class="row">
 
         <?php if( have_rows('sport') ): ?>
         <?php while( have_rows('sport') ): the_row();
