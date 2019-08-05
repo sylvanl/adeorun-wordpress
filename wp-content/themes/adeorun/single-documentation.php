@@ -31,7 +31,7 @@
 			echo '<ul>';
 				while ( $related_items->have_posts() ) : $related_items->the_post();
 				?>
-			<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+			<li><a class="black-text" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 		<?php
 				endwhile;
 			echo '</ul>';
