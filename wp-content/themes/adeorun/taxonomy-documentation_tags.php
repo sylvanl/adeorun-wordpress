@@ -13,7 +13,7 @@
   $args = array(
     'parent' => $this_term->term_id,
     'orderby' => 'slug',
-    'hide_empty' => false
+    'hide_empty' => true
   );
   $child_terms = get_terms( $this_term->taxonomy, $args );
 ?>
