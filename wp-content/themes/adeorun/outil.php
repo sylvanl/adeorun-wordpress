@@ -26,7 +26,7 @@
 								the_post_thumbnail();
 							endif; ?>
 							<header class="entry-header">
-								<p class="entry-title"><?php the_title(); ?></p>
+								<p class="entry-title"><?php the_title(); ?><i class="far fa-arrow-right right black-text"></i></p>
 							</header>
 						</article>
 					</a>
