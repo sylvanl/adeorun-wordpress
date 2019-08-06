@@ -62,7 +62,9 @@ $query = new WP_Query( array(
       while($query->have_posts()) : $query->the_post(); ?>
 
             <a class="black-text" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-              <div class="small_clickable col s3"><?php the_title(); ?><i class="far fa-arrow-right right black-text"></i></div></a>
+              <div class="small_clickable col s3"><?php the_title(); ?><i class="far fa-arrow-right right black-text"></i>
+            </div>
+          </a>
 
         <?php endwhile;
   } else  { echo "no posts";} ?>

@@ -20,12 +20,12 @@
             $link = get_sub_field('sport_link');
           ?>
 
+            <a href="<?php echo $link; ?>">
           	  <div class='col s3 large-clickable hoverable'>
-                  <a href="<?php echo $link; ?>">
                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
                     <p class="orga-title"><?php echo $title; ?><i class="far fa-arrow-right right black-text"></i></p>
-                  </a>
               </div>
+            </a>
 
           <?php endwhile; ?>
         <?php endif; ?>

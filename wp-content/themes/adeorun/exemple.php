@@ -82,7 +82,7 @@
           $image = get_sub_field('image');
           ?>
 
-          <div class="small_clickable col s3">
+          <div class="small_clickable col s4">
               <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
               <p><?php echo $name; ?></p>
           </div>
