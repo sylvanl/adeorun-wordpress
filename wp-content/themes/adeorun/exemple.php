@@ -148,16 +148,29 @@
             ),
 
 				));
-        var_dump($sport_type);
 
 				while ($query->have_posts()) : $query->the_post(); ?>
 
           <div class="col s3">
             <a class="black-text no-underline" href="<?php echo the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
               <?php the_post_thumbnail(); ?>
+              <?php the_terms(); ?>
               <p class="bold"><?php the_title(); ?></p>
               <p><?php the_field('start_date'); ?></p>
-              <p><?php the_field('city');?>,<?php the_field('region_name'); ?></p>
+              <p><?php the_field('city');?> , <?php the_field('region_name'); ?></p>
+
+              <?php if( have_rows('etapes') ): ?>
+                <div>
+                <?php while( have_rows('etapes') ): the_row();
+                  $distance = get_sub_field('distance'); ?>
+                <div>
+                  <p><?php echo $distance; ?></p>
+                  <p>Km</p>
+                </div>
+                <?php endwhile; ?> 
+
+                </div>
+               <?php endif; ?> 
             </a>
           </div>
 
