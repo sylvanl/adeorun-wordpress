@@ -26,7 +26,7 @@
 			<header class="header clear" role="banner">
 
 				<!-- nav -->
-				<nav>
+				<nav class="sticky">
 					<div class="nav-wrapper row">
 						<!-- logo -->
 						<div class="col">
