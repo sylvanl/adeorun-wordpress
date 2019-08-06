@@ -9,7 +9,7 @@
   $fonctionnalites = get_field('fonctionnalites_adeorun');
   $evenement_titre = get_field('evenements_titre');
   $avantages = get_field('avantages_adeorun');
-  $sport_type = get_field('sport-type');
+  $sport_type = get_field('sport_type');
 ?>
 
 <main role="main">
