@@ -154,8 +154,10 @@
 
           <div class="small_clickable col s3">
             <a class="black-text no-underline" href="<?php echo the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-            <p><?php the_title(); ?></p>
-            </a><i class="far fa-arrow-right right black-text"></i>
+              <?php the_post_thumbnail(); ?>
+              <p class="bold"><?php the_title(); ?></p>
+              <p><?php the_field('start_date'); ?></p>
+            </a>
           </div>
 
 				<?php endwhile;
