@@ -147,7 +147,7 @@
             ),
 
 				));
-        echo $sport_type;
+        var_dump($sport_type);
 
 				while ($query->have_posts()) : $query->the_post(); ?>
 
