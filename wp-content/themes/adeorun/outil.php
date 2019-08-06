@@ -10,31 +10,23 @@
 
 			<div class="row">
 				<?php $query = new WP_Query(array(
-					'post_type' => 'Outil',
+					'post_type' => 'Outils',
 					'post_status' => 'publish'
 				));
 
 
-				while ($query->have_posts()) :
-					$query->the_post();
-					$post_id = get_the_ID(); ?>
+				while ($query->have_posts()) : $query->the_post(); ?>
 
-				<div class="col s3 small_clickable">
-					<a class="black-text no-underline" href="<?php the_permalink(); ?>">
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<?php if ( has_post_thumbnail() ) :
-								the_post_thumbnail();
-							endif; ?>
-							<header class="entry-header">
-								<p class="entry-title"><?php the_title(); ?><i class="far fa-arrow-right right black-text"></i></p>
-							</header>
-						</article>
-					</a>
+				<div class="small_clickable col s3">
+					<a class="black-text no-underline" href="<?php echo the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+					<p><?php the_title(); ?></p>
+					</a><i class="far fa-arrow-right right black-text"></i>
 				</div>
+
 				<?php endwhile;
-
 				wp_reset_query(); ?>
-				</div>
+
+			</div>
 
 		</div><!-- #container -->
 
