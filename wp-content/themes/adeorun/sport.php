@@ -17,11 +17,14 @@
         // Variables
             $image = get_sub_field('sport_icon');
             $title = get_sub_field('sport_title');
+            $link = get_sub_field('sport_link');
           ?>
 
           	  <div class='col s3 large-clickable hoverable'>
-                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-          	      <p class="orga-title"><?php echo $title; ?><i class="far fa-arrow-right right black-text"></i></p>
+                  <a href="<?php echo $link; ?>">
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                    <p class="orga-title"><?php echo $title; ?><i class="far fa-arrow-right right black-text"></i></p>
+                  </a>
               </div>
 
           <?php endwhile; ?>
