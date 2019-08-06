@@ -13,13 +13,14 @@ $link-color: color("text", "red") !default;
 // 2. Extends
 // ==========================================================================
  %clickable{
-     border: 1px solid $secondary-color ;
+     border: 2px solid color("text", "light-gray") ;
      border-radius: 4px;
      padding: 2%;
      width: 48%;
      margin: 2%;
     box-sizing: border-box;
-    transition: border .1s ease-in;
+    transition: border .05s ease-in;
+    box-shadow: rgba(0, 0, 0, 0.098) 0px 0px 2px 0px;
 
      &:hover {
          border: 2px solid $secondary-color;
