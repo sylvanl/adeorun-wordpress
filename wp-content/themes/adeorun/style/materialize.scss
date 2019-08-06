@@ -45,10 +45,10 @@
 @import "components/datepicker";
 @import "components/timepicker";
 
-// Test
-@import "override/test";
+
 
 // Real one
+@import "override/home";
 @import "override/buttons";
 @import "override/large_clickable";
 @import "override/small_clickable";
