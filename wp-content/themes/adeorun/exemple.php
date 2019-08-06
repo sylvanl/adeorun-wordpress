@@ -142,7 +142,7 @@
           'post_status' => 'publish',
           'tax_query' => array(
               array(
-                'taxonomy' => $sport_type["slug"],
+                'taxonomy' => $sport_type->slug,
               ),
             ),
 
