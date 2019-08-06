@@ -159,9 +159,9 @@
               <p><?php the_field('start_date'); ?></p>
               <p><?php the_field('city');?> , <?php the_field('region_name'); ?></p>
 
-              <?php if( have_rows('etapes') ): ?>
+              <?php if( have_rows('circuit') ): ?>
                 <div>
-                <?php while( have_rows('etapes') ): the_row();
+                <?php while( have_rows('circuit') ): the_row();
                   $distance = get_sub_field('distance'); ?>
                 <div>
                   <p><?php echo $distance; ?></p>
