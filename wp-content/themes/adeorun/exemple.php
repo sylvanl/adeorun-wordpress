@@ -152,11 +152,12 @@
 
 				while ($query->have_posts()) : $query->the_post(); ?>
 
-          <div class="small_clickable col s3">
+          <div class="col s3">
             <a class="black-text no-underline" href="<?php echo the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
               <?php the_post_thumbnail(); ?>
               <p class="bold"><?php the_title(); ?></p>
               <p><?php the_field('start_date'); ?></p>
+              <p><?php the_field('city');?>,<?php the_field('region_name'); ?></p>
             </a>
           </div>
 
