@@ -41,7 +41,7 @@
 
 						<!-- Recherche d'évenemnts -->
 						<div class="input-field col s2 red-text">
-							<input type="text" placeholder="Rechercher un évenement" id="autocomplete-input" class="autocomplete red-text" >
+						<?php echo do_shortcode( '[ivory-search id="384" title="Default Search Form"]' ); ?>
 						</div>
 						<!-- /Recherche d'évenemnts -->
 						<div class="right col">
