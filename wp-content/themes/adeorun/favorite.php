@@ -13,7 +13,6 @@
 
     <?php 
         $favorites = get_user_favorites();
-        var_dump($favorites);
             if ( $favorites ) : // This is important: if an empty array is passed into the WP_Query parameters, all posts will be returned
             $favorites_query = new WP_Query(array(
                 'post_type' => 'Evenements', // If you have multiple post types, pass an array
