@@ -13,13 +13,13 @@
 
     <?php 
         $favorites = get_user_favorites();
+        var_dump($favorites);
             if ( $favorites ) : // This is important: if an empty array is passed into the WP_Query parameters, all posts will be returned
             $favorites_query = new WP_Query(array(
                 'post_type' => 'Evenements', // If you have multiple post types, pass an array
                 'posts_per_page' => -1,
                 'ignore_sticky_posts' => true,
                 'post__in' => $favorites,
-                'paged' => $paged // If you want to include pagination, and have a specific posts_per_page set
             ));
             if ( $favorites_query->have_posts() ) : while ( $favorites_query->have_posts() ) : $favorites_query->the_post(); ?>
                 <div class="col s3">
