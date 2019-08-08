@@ -11,6 +11,8 @@
         <h2><?php the_content(); ?></h2>
     </div>
 
+    <div class="section">
+        <div class="row">
     <?php 
         $favorites = get_user_favorites();
             if ( $favorites ) : // This is important: if an empty array is passed into the WP_Query parameters, all posts will be returned
@@ -54,7 +56,8 @@
 
 
     ?>
-
+            </div>
+        </div>
     </div>
 
 </main>
