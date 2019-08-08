@@ -307,7 +307,7 @@ function html5_blank_view_article($more)
 // Add Admin bar
 function remove_admin_bar()
 {
-    return true;
+    return false;
 }
 
 // Remove 'text/css' from our enqueued stylesheet
@@ -831,5 +831,3 @@ function my_wp_nav_menu_objects( $items, $args ) {
 	return $items;
 	
 }
-
-
