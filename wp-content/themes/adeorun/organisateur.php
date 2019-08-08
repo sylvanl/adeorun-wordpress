@@ -26,15 +26,18 @@
 
             <?php if($row_count > 4) : ?>
 
+          <div class="col s3">
             <a href="<?php echo $link; ?>">
-          	  <div class='col s3 large-clickable hoverable'>
+          	  <div class='large-clickable hoverable'>
                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
                     <p class="orga-title"><?php echo $title; ?></p>
                     <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
               </div>
             </a>    
+          </div>
 
             <?php else : ?>
+          <div class="col s3">
             <a href="<?php echo $link; ?>">
               <div class="large-clickable hoverable">
                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
@@ -42,6 +45,7 @@
                     <p class="subtitle grey-text"><?php echo $description; ?><i class="far fa-arrow-right right black-text"></i></p>
               </div>
             </a>
+            </div>  
             <?php endif; ?>
 
 
