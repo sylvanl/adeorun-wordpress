@@ -154,6 +154,8 @@
           <div class="col s3">
             <?php the_favorites_button($post_id, $site_id); ?>
             <a class="black-text no-underline" href="<?php echo the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+
+              
               <?php the_post_thumbnail(); ?>
               <p class="bold"><?php the_title(); ?></p>
               <p><?php the_field('start_date'); ?></p>
