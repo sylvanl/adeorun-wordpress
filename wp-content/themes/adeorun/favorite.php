@@ -45,7 +45,7 @@
                     <?php endif; ?> 
                     </a>
                 </div>
-            endwhile; 
+            <?php endwhile; 
             endif; wp_reset_postdata();
             else :
                 // No Favorites
