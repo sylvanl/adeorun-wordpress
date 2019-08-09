@@ -157,7 +157,7 @@
 
               <?php 
                 foreach (get_the_terms(get_the_ID(), 'evenement_tags') as $cat) {
-                  echo '<p>' . $cat->name . '</p>';
+                    echo '<span class="new badge" data-badge-caption="">' .  $cat->name .'</span>';
                 } 
               ?>
 
