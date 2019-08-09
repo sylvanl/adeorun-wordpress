@@ -20,7 +20,7 @@
         <h2 class="left-align">Recherchez un événement</h2>
         <div class="valign-wrapper">
           <div class="valign-wrapper">
-            <input type="text" name="event_search" placeholder="Rechercher un événement...">
+						<?php echo do_shortcode( '[ivory-search id="384" title="Default Search Form"]' ); ?>
             <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Rechercher</button>
           </div>
           <button class="btn secondary btn-large waves-effect waves-light" type="submit" name="action">Me surprendre</button>
