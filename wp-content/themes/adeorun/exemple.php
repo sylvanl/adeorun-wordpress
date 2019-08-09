@@ -80,12 +80,22 @@
           // vars
           $name = get_sub_field('titre');
           $image = get_sub_field('image');
+          $url = get_sub_field('url');
           ?>
 
-          <div class="small_clickable col s4">
-              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-              <p><?php echo $name; ?></p>
-          </div>
+          <?php if($url) : ?>
+          <a href="<?php echo $url ?>">
+            <div class="small_clickable col s4">
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                <p><?php echo $name; ?></p>
+            </div>
+          </a>
+          <?php else : ?>
+              <div class="small_clickable col s4">
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                <p><?php echo $name; ?></p>
+              </div>
+          <?php endif; ?>
 
           <?php endwhile; ?>
           <?php endif; ?>
