@@ -150,6 +150,7 @@
       	<?php $query = new WP_Query(array(
 					'post_type' => 'Evenements',
           'post_status' => 'publish',
+          'order_by' => 'rand',
           'tax_query' => array(
               array(
                 'taxonomy' => 'evenement_tags',
