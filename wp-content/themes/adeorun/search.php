@@ -2,13 +2,15 @@
 
 	<main role="main">
 		<!-- section -->
-		<section>
+		<div class="container">
 
 
 			<?php get_template_part('loop'); ?>
 
+		</div>
 
-		</section>
+		
+	
 		<!-- /section -->
 	</main>
 
